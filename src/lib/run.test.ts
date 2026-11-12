@@ -5,7 +5,10 @@ import { getState, sortedLedger } from "./store";
 import { contractQuery } from "./queries";
 
 const reset = () => getState().reset();
-const contract = async () => (await contractQuery.queryFn!({} as never)) as Awaited<ReturnType<NonNullable<typeof contractQuery.queryFn>>>;
+const contract = async () =>
+  (await contractQuery.queryFn!({} as never)) as Awaited<
+    ReturnType<NonNullable<typeof contractQuery.queryFn>>
+  >;
 
 describe("demo store", () => {
   beforeEach(reset);
@@ -56,7 +59,7 @@ describe("replanRun / applyChoice", () => {
     const all = sortedLedger();
     const step = latestRun(all).find((r) => r.criterion === "venue_share_60" || r.default_key);
     expect(step).toBeDefined();
-    const r = await applyChoice(step!, "70%", true, c, all);
+    const r = await applyChoice(step!, "Best venue", true, c, all);
     expect(getState().contract.rules.length).toBeGreaterThan(c.rules.length);
     await r.undo();
     expect(getState().contract.rules).toEqual(c.rules);

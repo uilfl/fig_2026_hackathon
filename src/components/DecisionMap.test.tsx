@@ -17,7 +17,7 @@ const split = {
   role: "split",
   scenario: "offsite",
   kind: "select",
-  action: "Allocated 60% of the budget to the venue",
+  action: "Chose “Keep it balanced”: up to $3,600 for the venue",
   criterion: "split",
   status: "done",
   source: "user",
@@ -56,7 +56,7 @@ function renderMap() {
 describe("DecisionMap detail card", () => {
   it("opens for keyboard focus, links to the node, and closes on blur", () => {
     renderMap();
-    const node = screen.getByRole("button", { name: /Budget split 60%/i });
+    const node = screen.getByRole("button", { name: /Budget split Balanced/i });
     expect(screen.queryByRole("tooltip")).toBeNull();
 
     fireEvent.focus(node);
@@ -70,7 +70,7 @@ describe("DecisionMap detail card", () => {
 
   it("closes with Escape while focus stays on the node", () => {
     renderMap();
-    const node = screen.getByRole("button", { name: /Budget split 60%/i });
+    const node = screen.getByRole("button", { name: /Budget split Balanced/i });
     fireEvent.focus(node);
     fireEvent.keyDown(node, { key: "Escape" });
     expect(screen.queryByRole("tooltip")).toBeNull();

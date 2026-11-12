@@ -26,35 +26,35 @@ exports[`offsite scenario stays identical through the scenario refactor > ask be
     "status": "done",
   },
   {
-    "action": "Allocated 60% of budget ($3,600) to the venue",
+    "action": "Chose “Keep it balanced”: up to $3,600 for the venue",
     "agent": "Budget agent",
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Spend 60% of the budget on the venue",
+        "label": "Keep it balanced (the agent's usual)",
         "source": "default",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Spend 60% of the budget on the venue",
+    "criterion_label": "Keep it balanced (the agent's usual)",
     "default_key": null,
     "default_label": null,
     "filtered_out": [
       {
-        "option": "50%",
-        "reason": "Agent's usual split is 60%",
+        "option": "Save for catering",
+        "reason": "Agent's usual is Balanced",
       },
       {
-        "option": "70%",
-        "reason": "Agent's usual split is 60%",
+        "option": "Best venue",
+        "reason": "Agent's usual is Balanced",
       },
     ],
     "kind": "select",
     "options_considered": [
-      "50%",
-      "60%",
-      "70%",
+      "Save for catering",
+      "Balanced",
+      "Best venue",
     ],
     "preview": {
       "blocked_by": [
@@ -62,14 +62,14 @@ exports[`offsite scenario stays identical through the scenario refactor > ask be
       ],
       "reversibility": "free",
       "reversibility_note": "Nothing leaves Cosign; can be changed any time.",
-      "what": "Allocated 60% of budget ($3,600) to the venue",
+      "what": "Chose “Keep it balanced”: up to $3,600 for the venue",
     },
     "seq": 1,
     "source": "pending",
     "status": "pending",
   },
   {
-    "action": "Agents disagree: Venue agent wants Ridgeview Inn (fits 24, parking); Budget agent says over venue share by $1,600",
+    "action": "Agents disagree: Venue agent wants Ridgeview Inn (fits 24, parking); Budget agent says over the venue budget by $1,600",
     "agent": "Cosign",
     "criteria_out": [
       {
@@ -98,7 +98,7 @@ exports[`offsite scenario stays identical through the scenario refactor > ask be
       ],
       "reversibility": "free",
       "reversibility_note": "Nothing is booked yet.",
-      "what": "Venue agent wants Ridgeview Inn — fits 24, parking. Budget agent says: over venue share by $1,600.",
+      "what": "Venue agent wants Ridgeview Inn — fits 24, parking. Budget agent says: over the venue budget by $1,600.",
     },
     "seq": 2,
     "source": "pending",
@@ -114,7 +114,7 @@ exports[`offsite scenario stays identical through the scenario refactor > ask be
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 60% venue share ($3,600)",
+        "label": "Within the venue budget ($3,600, Balanced)",
       },
       {
         "key": "require_parking",
@@ -130,7 +130,7 @@ exports[`offsite scenario stays identical through the scenario refactor > ask be
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 60% venue share ($3,600)",
+        "label": "Within the venue budget ($3,600, Balanced)",
         "source": "default",
         "verified": true,
       },
@@ -162,7 +162,7 @@ exports[`offsite scenario stays identical through the scenario refactor > ask be
       },
       {
         "option": "Ridgeview Inn",
-        "reason": "$5,200 over venue share $3,600",
+        "reason": "$5,200 over the venue budget $3,600",
       },
     ],
     "filtered_out_by": [
@@ -454,35 +454,35 @@ exports[`offsite scenario stays identical through the scenario refactor > dates 
     "status": "done",
   },
   {
-    "action": "Allocated 60% of budget ($3,600) to the venue",
+    "action": "Chose “Keep it balanced”: up to $3,600 for the venue",
     "agent": "Budget agent",
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Spend 60% of the budget on the venue",
+        "label": "Keep it balanced (the agent's usual)",
         "source": "default",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Spend 60% of the budget on the venue",
+    "criterion_label": "Keep it balanced (the agent's usual)",
     "default_key": "venue_share_60",
-    "default_label": "Spend 60% of the budget on the venue",
+    "default_label": "Keep it balanced (the agent's usual)",
     "filtered_out": [
       {
-        "option": "50%",
-        "reason": "Agent's usual split is 60%",
+        "option": "Save for catering",
+        "reason": "Agent's usual is Balanced",
       },
       {
-        "option": "70%",
-        "reason": "Agent's usual split is 60%",
+        "option": "Best venue",
+        "reason": "Agent's usual is Balanced",
       },
     ],
     "kind": "select",
     "options_considered": [
-      "50%",
-      "60%",
-      "70%",
+      "Save for catering",
+      "Balanced",
+      "Best venue",
     ],
     "preview": null,
     "seq": 1,
@@ -528,7 +528,7 @@ exports[`offsite scenario stays identical through the scenario refactor > dates 
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 60% venue share ($3,600)",
+        "label": "Within the venue budget ($3,600, Balanced)",
       },
       {
         "key": "require_parking",
@@ -544,7 +544,7 @@ exports[`offsite scenario stays identical through the scenario refactor > dates 
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 60% venue share ($3,600)",
+        "label": "Within the venue budget ($3,600, Balanced)",
         "source": "default",
         "verified": true,
       },
@@ -568,7 +568,7 @@ exports[`offsite scenario stays identical through the scenario refactor > dates 
       },
       {
         "option": "Ridgeview Inn",
-        "reason": "$5,200 over venue share $3,600",
+        "reason": "$5,200 over the venue budget $3,600",
       },
     ],
     "filtered_out_by": [
@@ -839,7 +839,7 @@ exports[`offsite scenario stays identical through the scenario refactor > declin
   {
     "key": "require_parking",
     "kind": "venue",
-    "note": "Over the 60% venue share ($3,600)",
+    "note": "Over the Balanced venue budget ($3,600)",
     "passes": false,
     "preview": "Deposit $2,600 to Ridgeview Inn · fits 24 · parking · Mar 14–15",
     "value": "Ridgeview Inn",
@@ -887,35 +887,35 @@ exports[`offsite scenario stays identical through the scenario refactor > kept p
     "status": "done",
   },
   {
-    "action": "Allocated 60% of budget ($3,600) to the venue",
+    "action": "Chose “Keep it balanced”: up to $3,600 for the venue",
     "agent": "Budget agent",
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Spend 60% of the budget on the venue",
+        "label": "Keep it balanced (the agent's usual)",
         "source": "default",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Spend 60% of the budget on the venue",
+    "criterion_label": "Keep it balanced (the agent's usual)",
     "default_key": "venue_share_60",
-    "default_label": "Spend 60% of the budget on the venue",
+    "default_label": "Keep it balanced (the agent's usual)",
     "filtered_out": [
       {
-        "option": "50%",
-        "reason": "Agent's usual split is 60%",
+        "option": "Save for catering",
+        "reason": "Agent's usual is Balanced",
       },
       {
-        "option": "70%",
-        "reason": "Agent's usual split is 60%",
+        "option": "Best venue",
+        "reason": "Agent's usual is Balanced",
       },
     ],
     "kind": "select",
     "options_considered": [
-      "50%",
-      "60%",
-      "70%",
+      "Save for catering",
+      "Balanced",
+      "Best venue",
     ],
     "preview": null,
     "seq": 1,
@@ -961,7 +961,7 @@ exports[`offsite scenario stays identical through the scenario refactor > kept p
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 60% venue share ($3,600)",
+        "label": "Within the venue budget ($3,600, Balanced)",
       },
       {
         "key": "require_parking",
@@ -977,7 +977,7 @@ exports[`offsite scenario stays identical through the scenario refactor > kept p
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 60% venue share ($3,600)",
+        "label": "Within the venue budget ($3,600, Balanced)",
         "source": "default",
         "verified": true,
       },
@@ -1009,7 +1009,7 @@ exports[`offsite scenario stays identical through the scenario refactor > kept p
       },
       {
         "option": "Ridgeview Inn",
-        "reason": "$5,200 over venue share $3,600",
+        "reason": "$5,200 over the venue budget $3,600",
       },
     ],
     "filtered_out_by": [
@@ -1285,35 +1285,35 @@ exports[`offsite scenario stays identical through the scenario refactor > never 
     "status": "done",
   },
   {
-    "action": "Allocated 60% of budget ($1,200) to the venue",
+    "action": "Chose “Keep it balanced”: up to $1,200 for the venue",
     "agent": "Budget agent",
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Spend 60% of the budget on the venue",
+        "label": "Keep it balanced (the agent's usual)",
         "source": "default",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Spend 60% of the budget on the venue",
+    "criterion_label": "Keep it balanced (the agent's usual)",
     "default_key": "venue_share_60",
-    "default_label": "Spend 60% of the budget on the venue",
+    "default_label": "Keep it balanced (the agent's usual)",
     "filtered_out": [
       {
-        "option": "50%",
-        "reason": "Agent's usual split is 60%",
+        "option": "Save for catering",
+        "reason": "Agent's usual is Balanced",
       },
       {
-        "option": "70%",
-        "reason": "Agent's usual split is 60%",
+        "option": "Best venue",
+        "reason": "Agent's usual is Balanced",
       },
     ],
     "kind": "select",
     "options_considered": [
-      "50%",
-      "60%",
-      "70%",
+      "Save for catering",
+      "Balanced",
+      "Best venue",
     ],
     "preview": null,
     "seq": 1,
@@ -1321,7 +1321,7 @@ exports[`offsite scenario stays identical through the scenario refactor > never 
     "status": "done",
   },
   {
-    "action": "Agents disagree: Venue agent wants Ridgeview Inn (fits 24, parking); Budget agent says over venue share by $4,000",
+    "action": "Agents disagree: Venue agent wants Ridgeview Inn (fits 24, parking); Budget agent says over the venue budget by $4,000",
     "agent": "Cosign",
     "criteria_out": [
       {
@@ -1350,7 +1350,7 @@ exports[`offsite scenario stays identical through the scenario refactor > never 
       ],
       "reversibility": "free",
       "reversibility_note": "Nothing is booked yet.",
-      "what": "Venue agent wants Ridgeview Inn — fits 24, parking. Budget agent says: over venue share by $4,000.",
+      "what": "Venue agent wants Ridgeview Inn — fits 24, parking. Budget agent says: over the venue budget by $4,000.",
     },
     "seq": 2,
     "source": "pending",
@@ -1366,7 +1366,7 @@ exports[`offsite scenario stays identical through the scenario refactor > never 
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 60% venue share ($1,200)",
+        "label": "Within the venue budget ($1,200, Balanced)",
       },
       {
         "key": "require_parking",
@@ -1382,7 +1382,7 @@ exports[`offsite scenario stays identical through the scenario refactor > never 
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 60% venue share ($1,200)",
+        "label": "Within the venue budget ($1,200, Balanced)",
         "source": "default",
         "verified": false,
       },
@@ -1396,13 +1396,13 @@ exports[`offsite scenario stays identical through the scenario refactor > never 
     "criterion": "require_parking",
     "criterion_label": "Venues must have on-site parking",
     "default_key": "venue_share_60",
-    "default_label": "Within the 60% venue share ($1,200)",
+    "default_label": "Within the venue budget ($1,200, Balanced)",
     "depends_on": 2,
     "exempt": [],
     "filtered_out": [
       {
         "option": "The Foundry Loft",
-        "reason": "$2,600 over venue share $1,200",
+        "reason": "$2,600 over the venue budget $1,200",
       },
       {
         "option": "Cedar Hall",
@@ -1410,11 +1410,11 @@ exports[`offsite scenario stays identical through the scenario refactor > never 
       },
       {
         "option": "Harbor House",
-        "reason": "$2,400 over venue share $1,200",
+        "reason": "$2,400 over the venue budget $1,200",
       },
       {
         "option": "Ridgeview Inn",
-        "reason": "$5,200 over venue share $1,200",
+        "reason": "$5,200 over the venue budget $1,200",
       },
     ],
     "filtered_out_by": [
@@ -1686,35 +1686,35 @@ exports[`offsite scenario stays identical through the scenario refactor > picked
     "status": "done",
   },
   {
-    "action": "Allocated 60% of budget ($3,600) to the venue",
+    "action": "Chose “Keep it balanced”: up to $3,600 for the venue",
     "agent": "Budget agent",
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Spend 60% of the budget on the venue",
+        "label": "Keep it balanced (the agent's usual)",
         "source": "default",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Spend 60% of the budget on the venue",
+    "criterion_label": "Keep it balanced (the agent's usual)",
     "default_key": "venue_share_60",
-    "default_label": "Spend 60% of the budget on the venue",
+    "default_label": "Keep it balanced (the agent's usual)",
     "filtered_out": [
       {
-        "option": "50%",
-        "reason": "Agent's usual split is 60%",
+        "option": "Save for catering",
+        "reason": "Agent's usual is Balanced",
       },
       {
-        "option": "70%",
-        "reason": "Agent's usual split is 60%",
+        "option": "Best venue",
+        "reason": "Agent's usual is Balanced",
       },
     ],
     "kind": "select",
     "options_considered": [
-      "50%",
-      "60%",
-      "70%",
+      "Save for catering",
+      "Balanced",
+      "Best venue",
     ],
     "preview": null,
     "seq": 1,
@@ -1760,7 +1760,7 @@ exports[`offsite scenario stays identical through the scenario refactor > picked
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 60% venue share ($3,600)",
+        "label": "Within the venue budget ($3,600, Balanced)",
       },
       {
         "key": "require_parking",
@@ -1776,7 +1776,7 @@ exports[`offsite scenario stays identical through the scenario refactor > picked
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 60% venue share ($3,600)",
+        "label": "Within the venue budget ($3,600, Balanced)",
         "source": "default",
         "verified": true,
       },
@@ -1806,7 +1806,7 @@ exports[`offsite scenario stays identical through the scenario refactor > picked
       },
       {
         "option": "Ridgeview Inn",
-        "reason": "$5,200 over venue share $3,600",
+        "reason": "$5,200 over the venue budget $3,600",
       },
     ],
     "filtered_out_by": [
@@ -2078,35 +2078,35 @@ exports[`offsite scenario stays identical through the scenario refactor > seed 1
     "status": "done",
   },
   {
-    "action": "Allocated 60% of budget ($3,600) to the venue",
+    "action": "Chose “Keep it balanced”: up to $3,600 for the venue",
     "agent": "Budget agent",
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Spend 60% of the budget on the venue",
+        "label": "Keep it balanced (the agent's usual)",
         "source": "default",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Spend 60% of the budget on the venue",
+    "criterion_label": "Keep it balanced (the agent's usual)",
     "default_key": "venue_share_60",
-    "default_label": "Spend 60% of the budget on the venue",
+    "default_label": "Keep it balanced (the agent's usual)",
     "filtered_out": [
       {
-        "option": "50%",
-        "reason": "Agent's usual split is 60%",
+        "option": "Save for catering",
+        "reason": "Agent's usual is Balanced",
       },
       {
-        "option": "70%",
-        "reason": "Agent's usual split is 60%",
+        "option": "Best venue",
+        "reason": "Agent's usual is Balanced",
       },
     ],
     "kind": "select",
     "options_considered": [
-      "50%",
-      "60%",
-      "70%",
+      "Save for catering",
+      "Balanced",
+      "Best venue",
     ],
     "preview": null,
     "seq": 1,
@@ -2114,7 +2114,7 @@ exports[`offsite scenario stays identical through the scenario refactor > seed 1
     "status": "done",
   },
   {
-    "action": "Agents disagree: Venue agent wants Ridgeview Inn (fits 24, parking); Budget agent says over venue share by $1,600",
+    "action": "Agents disagree: Venue agent wants Ridgeview Inn (fits 24, parking); Budget agent says over the venue budget by $1,600",
     "agent": "Cosign",
     "criteria_out": [
       {
@@ -2143,7 +2143,7 @@ exports[`offsite scenario stays identical through the scenario refactor > seed 1
       ],
       "reversibility": "free",
       "reversibility_note": "Nothing is booked yet.",
-      "what": "Venue agent wants Ridgeview Inn — fits 24, parking. Budget agent says: over venue share by $1,600.",
+      "what": "Venue agent wants Ridgeview Inn — fits 24, parking. Budget agent says: over the venue budget by $1,600.",
     },
     "seq": 2,
     "source": "pending",
@@ -2159,7 +2159,7 @@ exports[`offsite scenario stays identical through the scenario refactor > seed 1
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 60% venue share ($3,600)",
+        "label": "Within the venue budget ($3,600, Balanced)",
       },
       {
         "key": "require_parking",
@@ -2175,7 +2175,7 @@ exports[`offsite scenario stays identical through the scenario refactor > seed 1
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 60% venue share ($3,600)",
+        "label": "Within the venue budget ($3,600, Balanced)",
         "source": "default",
         "verified": true,
       },
@@ -2207,7 +2207,7 @@ exports[`offsite scenario stays identical through the scenario refactor > seed 1
       },
       {
         "option": "Ridgeview Inn",
-        "reason": "$5,200 over venue share $3,600",
+        "reason": "$5,200 over the venue budget $3,600",
       },
     ],
     "filtered_out_by": [
@@ -2483,35 +2483,35 @@ exports[`offsite scenario stays identical through the scenario refactor > sided 
     "status": "done",
   },
   {
-    "action": "Allocated 60% of budget ($3,600) to the venue",
+    "action": "Chose “Keep it balanced”: up to $3,600 for the venue",
     "agent": "Budget agent",
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Spend 60% of the budget on the venue",
+        "label": "Keep it balanced (the agent's usual)",
         "source": "default",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Spend 60% of the budget on the venue",
+    "criterion_label": "Keep it balanced (the agent's usual)",
     "default_key": "venue_share_60",
-    "default_label": "Spend 60% of the budget on the venue",
+    "default_label": "Keep it balanced (the agent's usual)",
     "filtered_out": [
       {
-        "option": "50%",
-        "reason": "Agent's usual split is 60%",
+        "option": "Save for catering",
+        "reason": "Agent's usual is Balanced",
       },
       {
-        "option": "70%",
-        "reason": "Agent's usual split is 60%",
+        "option": "Best venue",
+        "reason": "Agent's usual is Balanced",
       },
     ],
     "kind": "select",
     "options_considered": [
-      "50%",
-      "60%",
-      "70%",
+      "Save for catering",
+      "Balanced",
+      "Best venue",
     ],
     "preview": null,
     "seq": 1,
@@ -2557,7 +2557,7 @@ exports[`offsite scenario stays identical through the scenario refactor > sided 
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 60% venue share ($3,600)",
+        "label": "Within the venue budget ($3,600, Balanced)",
       },
       {
         "key": "require_parking",
@@ -2573,7 +2573,7 @@ exports[`offsite scenario stays identical through the scenario refactor > sided 
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 60% venue share ($3,600)",
+        "label": "Within the venue budget ($3,600, Balanced)",
         "source": "default",
         "verified": true,
       },
@@ -2605,7 +2605,7 @@ exports[`offsite scenario stays identical through the scenario refactor > sided 
       },
       {
         "option": "Ridgeview Inn",
-        "reason": "$5,200 over venue share $3,600",
+        "reason": "$5,200 over the venue budget $3,600",
       },
     ],
     "filtered_out_by": [
@@ -2881,35 +2881,35 @@ exports[`offsite scenario stays identical through the scenario refactor > sided 
     "status": "done",
   },
   {
-    "action": "Allocated 60% of budget ($3,600) to the venue",
+    "action": "Chose “Keep it balanced”: up to $3,600 for the venue",
     "agent": "Budget agent",
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Spend 60% of the budget on the venue",
+        "label": "Keep it balanced (the agent's usual)",
         "source": "default",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Spend 60% of the budget on the venue",
+    "criterion_label": "Keep it balanced (the agent's usual)",
     "default_key": "venue_share_60",
-    "default_label": "Spend 60% of the budget on the venue",
+    "default_label": "Keep it balanced (the agent's usual)",
     "filtered_out": [
       {
-        "option": "50%",
-        "reason": "Agent's usual split is 60%",
+        "option": "Save for catering",
+        "reason": "Agent's usual is Balanced",
       },
       {
-        "option": "70%",
-        "reason": "Agent's usual split is 60%",
+        "option": "Best venue",
+        "reason": "Agent's usual is Balanced",
       },
     ],
     "kind": "select",
     "options_considered": [
-      "50%",
-      "60%",
-      "70%",
+      "Save for catering",
+      "Balanced",
+      "Best venue",
     ],
     "preview": null,
     "seq": 1,
@@ -2955,7 +2955,7 @@ exports[`offsite scenario stays identical through the scenario refactor > sided 
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 60% venue share ($3,600)",
+        "label": "Within the venue budget ($3,600, Balanced)",
       },
       {
         "key": "require_parking",
@@ -2971,7 +2971,7 @@ exports[`offsite scenario stays identical through the scenario refactor > sided 
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 60% venue share ($3,600)",
+        "label": "Within the venue budget ($3,600, Balanced)",
         "source": "default",
         "verified": true,
       },
@@ -3247,7 +3247,7 @@ exports[`offsite scenario stays identical through the scenario refactor > sided 
 ]
 `;
 
-exports[`offsite scenario stays identical through the scenario refactor > split raised to 70% 1`] = `
+exports[`offsite scenario stays identical through the scenario refactor > split raised to Best venue 1`] = `
 [
   {
     "action": "Set goal “Plan a two-day team offsite for 12 people”, 12 people, $6,000 cap",
@@ -3273,35 +3273,35 @@ exports[`offsite scenario stays identical through the scenario refactor > split 
     "status": "done",
   },
   {
-    "action": "Allocated 70% of budget ($4,200) to the venue",
+    "action": "Chose “Get the best venue for the group”: up to $4,200 for the venue",
     "agent": "Budget agent",
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Spend 60% of the budget on the venue",
+        "label": "Keep it balanced (the agent's usual)",
         "source": "you",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Spend 60% of the budget on the venue",
+    "criterion_label": "Keep it balanced (the agent's usual)",
     "default_key": null,
     "default_label": null,
     "filtered_out": [
       {
-        "option": "50%",
+        "option": "Save for catering",
         "reason": "You chose otherwise",
       },
       {
-        "option": "60%",
+        "option": "Balanced",
         "reason": "You chose otherwise",
       },
     ],
     "kind": "select",
     "options_considered": [
-      "50%",
-      "60%",
-      "70%",
+      "Save for catering",
+      "Balanced",
+      "Best venue",
     ],
     "preview": null,
     "seq": 1,
@@ -3347,7 +3347,7 @@ exports[`offsite scenario stays identical through the scenario refactor > split 
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 70% venue share ($4,200)",
+        "label": "Within the venue budget ($4,200, Best venue)",
       },
       {
         "key": "require_parking",
@@ -3363,7 +3363,7 @@ exports[`offsite scenario stays identical through the scenario refactor > split 
       },
       {
         "key": "venue_share_60",
-        "label": "Within the 70% venue share ($4,200)",
+        "label": "Within the venue budget ($4,200, Best venue)",
         "source": "you",
         "verified": true,
       },
