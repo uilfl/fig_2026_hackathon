@@ -2,7 +2,7 @@ import { create } from "zustand";
 import type { Contract } from "./engine";
 import type { ContractVersionRow, Json, LedgerRow, SharedReceiptRow } from "./model";
 import type { NewLedgerRow } from "./plan-rows";
-import { buildSeed, materialise, type DemoData } from "./seed";
+import { buildSeed, materialise, seedIds, type DemoData } from "./seed";
 
 type Actions = {
   /** Patch every ledger row matching `where`; returns how many changed. */
@@ -18,7 +18,8 @@ type Actions = {
 
 /** The whole demo database. In memory only: reload returns to the seed. */
 export const useDemoStore = create<DemoData & Actions>((set, get) => ({
-  ...buildSeed(),
+  // Built at module load, so ids must not be random (see seedIds). reset() runs in a handler.
+  ...buildSeed(undefined, seedIds()),
   updateRows: (where, patch) => {
     let n = 0;
     set((s) => ({ ledger: s.ledger.map((r) => (where(r) ? (n++, { ...r, ...patch }) : r)) }));
