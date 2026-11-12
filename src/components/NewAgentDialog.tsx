@@ -102,6 +102,12 @@ export function NewAgentDialog({
                 onChange={(e) => setNote(e.target.value)}
               />
             </div>
+            <p
+              role="note"
+              className="border-l-2 border-src-pending bg-muted/50 px-3 py-2 text-xs text-muted-foreground"
+            >
+              {T.demoNote}
+            </p>
           </div>
           <DialogFooter className="mt-6">
             <Button type="button" variant="outline" onClick={() => close(false)}>
