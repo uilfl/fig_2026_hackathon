@@ -18,16 +18,41 @@ export function toMessages(run: Entry[]): Msg[] {
   const out: Msg[] = [];
   for (const e of run) {
     out.push({ who: e.agent, text: e.rationale ? `${e.action}. ${e.rationale}` : e.action });
-    for (const c of resourceAnswers(e)) out.push({ who: "Cosign", text: `Answered from ${c.resource}: ${c.label}.${c.note ? ` ${c.note}.` : ""}` });
-    if (e.status === "pending") out.push({ who: "Cosign", tone: "pause", text: `Holding “${e.action}” — your contract says to ask first. It's waiting on you.` });
-    else if (e.status === "blocked") out.push({ who: "Cosign", tone: "block", text: `Blocked until the step it depends on is approved.` });
-    else if (e.source === "default" && !!e.default_key && !e.resolution) out.push({ who: "Cosign", tone: "flag", text: `No rule covers “${e.default_label ?? e.criterion}”. Flagged as a default for you to decide.` });
+    for (const c of resourceAnswers(e))
+      out.push({
+        who: "Cosign",
+        text: `Answered from ${c.resource}: ${c.label}.${c.note ? ` ${c.note}.` : ""}`,
+      });
+    if (e.status === "pending")
+      out.push({
+        who: "Cosign",
+        tone: "pause",
+        text: `Holding “${e.action}” — your contract says to ask first. It's waiting on you.`,
+      });
+    else if (e.status === "blocked")
+      out.push({
+        who: "Cosign",
+        tone: "block",
+        text: `Blocked until the step it depends on is approved.`,
+      });
+    else if (e.source === "default" && !!e.default_key && !e.resolution)
+      out.push({
+        who: "Cosign",
+        tone: "flag",
+        text: `No rule covers “${e.default_label ?? e.criterion}”. Flagged as a default for you to decide.`,
+      });
   }
   return out;
 }
 
 export function Avatar({ who, S }: { who: string; S: Scenario }) {
-  return <span className={`grid h-9 w-9 shrink-0 place-items-center rounded-full font-mono text-[10px] ${SLOT_CLS[slotOf(S, who)] ?? "bg-muted"}`}>{initialsOf(who)}</span>;
+  return (
+    <span
+      className={`grid h-9 w-9 shrink-0 place-items-center rounded-full font-mono text-[10px] ${SLOT_CLS[slotOf(S, who)] ?? "bg-muted"}`}
+    >
+      {initialsOf(who)}
+    </span>
+  );
 }
 
 export function Typing({ who, S }: { who: string; S: Scenario }) {
@@ -35,7 +60,13 @@ export function Typing({ who, S }: { who: string; S: Scenario }) {
     <div className="flex items-center gap-3">
       <Avatar who={who} S={S} />
       <div className="flex gap-1 rounded-2xl border border-border bg-card px-4 py-3">
-        {[0, 1, 2].map((i) => <span key={i} className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground" style={{ animationDelay: `${i * 150}ms` }} />)}
+        {[0, 1, 2].map((i) => (
+          <span
+            key={i}
+            className="h-1.5 w-1.5 animate-bounce rounded-full bg-muted-foreground"
+            style={{ animationDelay: `${i * 150}ms` }}
+          />
+        ))}
       </div>
       <span className="font-mono text-xs text-muted-foreground">{who} is thinking…</span>
     </div>
@@ -53,7 +84,9 @@ export function AgentChat({ run, animate }: { run: Entry[]; animate: boolean }) 
     const t = setTimeout(() => setShown((s) => s + 1), 1100);
     return () => clearTimeout(t);
   }, [shown, msgs.length]);
-  useEffect(() => { if (animate) end.current?.scrollIntoView({ block: "nearest", behavior: "smooth" }); }, [shown, animate]);
+  useEffect(() => {
+    if (animate) end.current?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }, [shown, animate]);
   return (
     <div className="space-y-4">
       {msgs.slice(0, shown).map((m, i) => (
@@ -61,12 +94,20 @@ export function AgentChat({ run, animate }: { run: Entry[]; animate: boolean }) 
           <Avatar who={m.who} S={S} />
           <div className="min-w-0">
             <p className="font-mono text-xs text-muted-foreground">{m.who}</p>
-            <p className={`mt-1 rounded-2xl rounded-tl-none border px-4 py-2 text-sm ${m.tone === "pause" ? "border-src-pending bg-secondary" : m.tone === "flag" ? "border-src-default bg-secondary" : m.tone === "block" ? "border-dashed border-border bg-muted" : "border-border bg-card"}`}>{m.text}</p>
+            <p
+              className={`mt-1 rounded-2xl rounded-tl-none border px-4 py-2 text-sm ${m.tone === "pause" ? "border-src-pending bg-secondary" : m.tone === "flag" ? "border-src-default bg-secondary" : m.tone === "block" ? "border-dashed border-border bg-muted" : "border-border bg-card"}`}
+            >
+              {m.text}
+            </p>
           </div>
         </div>
       ))}
       {shown < msgs.length && <Typing who={msgs[shown]!.who} S={S} />}
-      {animate && shown >= msgs.length && <p className="font-mono text-xs text-muted-foreground">— run finished · decisions waiting are on the right —</p>}
+      {animate && shown >= msgs.length && (
+        <p className="font-mono text-xs text-muted-foreground">
+          — run finished · decisions waiting are on the right —
+        </p>
+      )}
       <div ref={end} />
     </div>
   );

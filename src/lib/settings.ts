@@ -11,7 +11,16 @@ export function useAgentActivity(): [boolean, (v: boolean) => void] {
     read();
     window.addEventListener(EVT, read);
     window.addEventListener("storage", read);
-    return () => { window.removeEventListener(EVT, read); window.removeEventListener("storage", read); };
+    return () => {
+      window.removeEventListener(EVT, read);
+      window.removeEventListener("storage", read);
+    };
   }, []);
-  return [on, (v) => { window.localStorage.setItem(KEY, v ? "1" : "0"); window.dispatchEvent(new Event(EVT)); }];
+  return [
+    on,
+    (v) => {
+      window.localStorage.setItem(KEY, v ? "1" : "0");
+      window.dispatchEvent(new Event(EVT));
+    },
+  ];
 }

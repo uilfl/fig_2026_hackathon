@@ -26,7 +26,10 @@ describe.each(["offsite", "dinner"])("tour on the %s case", (caseId) => {
     const ledger = sortedLedger();
     let i = nextStep(0, ledger);
     const seen: string[] = [];
-    while (!TOUR[i]!.done) { seen.push(TOUR[i]!.id); i = nextStep(i, ledger); }
+    while (!TOUR[i]!.done) {
+      seen.push(TOUR[i]!.id);
+      i = nextStep(i, ledger);
+    }
     expect(seen).toEqual(["case", "sentence", "risk-map", "agents", "waiting"]);
     expect(TOUR[i]!.id).toBe("conflict");
     expect(settle(i, ledger)).toBe(i);

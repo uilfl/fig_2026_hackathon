@@ -30,11 +30,20 @@ export async function replanRun({ data }: { data: { run_id: string } }) {
   const targets = olds.filter((o) => seqs.includes(o.seq));
   const ids = new Set(targets.map((t) => t.id));
   updateRows((r) => ids.has(r.id), { status: "superseded" });
-  const rows = fresh.filter((f) => seqs.includes(f.seq)).map((s) => {
-    const prev = targets.find((t) => t.seq === s.seq);
-    const carry = prev?.resolution && prev.default_key && prev.default_key === s.default_key ? prev.resolution : null;
-    return rowFromStep(s, data.run_id, s.seq, carry, scenario);
-  });
+  const rows = fresh
+    .filter((f) => seqs.includes(f.seq))
+    .map((s) => {
+      const prev = targets.find((t) => t.seq === s.seq);
+      const carry =
+        prev?.resolution && prev.default_key && prev.default_key === s.default_key
+          ? prev.resolution
+          : null;
+      return rowFromStep(s, data.run_id, s.seq, carry, scenario);
+    });
   const inserted = insertRows(rows);
-  return { replaced: rows.length, inserted: inserted.map((x) => x.id), superseded: targets.map((t) => t.id) };
+  return {
+    replaced: rows.length,
+    inserted: inserted.map((x) => x.id),
+    superseded: targets.map((t) => t.id),
+  };
 }

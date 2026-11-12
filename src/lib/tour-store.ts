@@ -36,7 +36,10 @@ export const useTour = create<TourState>()(
       name: TOUR_STORAGE_KEY,
       // Demo data resets on reload, so only "seen" and the case survive; an unfinished tour starts over at the intro.
       partialize: (s) => ({ seen: s.seen, caseId: s.caseId }),
-      merge: (saved, current) => { const p = (saved ?? {}) as Partial<TourState>; return { ...current, ...p, active: !p.seen, step: 0 }; },
+      merge: (saved, current) => {
+        const p = (saved ?? {}) as Partial<TourState>;
+        return { ...current, ...p, active: !p.seen, step: 0 };
+      },
     },
   ),
 );

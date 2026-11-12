@@ -23,11 +23,30 @@ export type DemoData = {
 };
 
 /** Materialise ledger rows for a batch of steps; one timestamp per batch, like a single insert. */
-export function materialise(rows: ReturnType<typeof rowFromStep>[], now = new Date().toISOString(), newId: NewId = randomId): LedgerRow[] {
+export function materialise(
+  rows: ReturnType<typeof rowFromStep>[],
+  now = new Date().toISOString(),
+  newId: NewId = randomId,
+): LedgerRow[] {
   return rows.map((r) => ({
-    criteria: [], criterion: null, decided_at: null, default_key: null, default_label: null, depends_on: null, filtered_out: [], inputs: [],
-    options_considered: [], preview: null, rationale: "", resolution: null, status: "done", role: null, scenario: DEFAULT_SCENARIO,
-    ...r, id: newId(), created_at: now,
+    criteria: [],
+    criterion: null,
+    decided_at: null,
+    default_key: null,
+    default_label: null,
+    depends_on: null,
+    filtered_out: [],
+    inputs: [],
+    options_considered: [],
+    preview: null,
+    rationale: "",
+    resolution: null,
+    status: "done",
+    role: null,
+    scenario: DEFAULT_SCENARIO,
+    ...r,
+    id: newId(),
+    created_at: now,
   }));
 }
 
@@ -35,8 +54,23 @@ export function materialise(rows: ReturnType<typeof rowFromStep>[], now = new Da
 export function buildSeed(caseId: string = DEFAULT_SCENARIO, newId: NewId = randomId): DemoData {
   const now = new Date().toISOString();
   const S = scenarioOf(caseId);
-  const contract: Contract = { ...S.defaults, triggers: normaliseTriggers({ ask_at: "never", over_budget: true }), rules: [], scenario: S.id };
+  const contract: Contract = {
+    ...S.defaults,
+    triggers: normaliseTriggers({ ask_at: "never", over_budget: true }),
+    rules: [],
+    scenario: S.id,
+  };
   const run_id = newId();
-  const ledger = materialise(runScenario(contract).map((s, i) => rowFromStep(s, run_id, i, null, S.id)), now, newId);
-  return { contract: { ...contract, updated_at: now }, ledger, versions: [], shared: [], profile: { display_name: DEMO_NAME, team: DEMO_TEAM } };
+  const ledger = materialise(
+    runScenario(contract).map((s, i) => rowFromStep(s, run_id, i, null, S.id)),
+    now,
+    newId,
+  );
+  return {
+    contract: { ...contract, updated_at: now },
+    ledger,
+    versions: [],
+    shared: [],
+    profile: { display_name: DEMO_NAME, team: DEMO_TEAM },
+  };
 }

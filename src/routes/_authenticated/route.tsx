@@ -12,7 +12,9 @@ function Layout() {
   return (
     <div className="min-h-screen md:flex">
       <AppHeader />
-      <main className={`w-full min-w-0 flex-1 px-6 py-10 ${wide ? "" : "mx-auto max-w-[1120px]"}`}><Outlet /></main>
+      <main className={`w-full min-w-0 flex-1 px-6 py-10 ${wide ? "" : "mx-auto max-w-[1120px]"}`}>
+        <Outlet />
+      </main>
       <TourCoach />
     </div>
   );

@@ -35,57 +35,93 @@ export const commitSettled = (ledger: Entry[]) => !live(ledger).some(isCommitSte
 
 export const TOUR: TourStep[] = [
   {
-    id: "intro", route: null, target: null,
+    id: "intro",
+    route: null,
+    target: null,
     title: "Agents plan. You decide where they stop.",
-    body: () => "Cosign is a study of supervising AI agents. You sign a contract that says when agents must stop and ask, they run a plan, and every decision shows who made it: you, your contract, or an agent's assumption. Pick a case to walk through — it takes about two minutes.",
+    body: () =>
+      "Cosign is a study of supervising AI agents. You sign a contract that says when agents must stop and ask, they run a plan, and every decision shows who made it: you, your contract, or an agent's assumption. Pick a case to walk through — it takes about two minutes.",
   },
   {
-    id: "case", route: "/contract", target: "case",
+    id: "case",
+    route: "/contract",
+    target: "case",
     title: "What the agents work on",
-    body: (S) => `You're on the ${S.title}. Each case has its own agents, options and rules. Switching cases here is a contract change, so it only applies when you sign.`,
+    body: (S) =>
+      `You're on the ${S.title}. Each case has its own agents, options and rules. Switching cases here is a contract change, so it only applies when you sign.`,
   },
   {
-    id: "sentence", route: "/contract", target: "sentence",
+    id: "sentence",
+    route: "/contract",
+    target: "sentence",
     title: "Your brief, in one sentence",
-    body: (S) => `Goal, ${S.sentence.unit}, budget, and when to check with you. Tap any underlined part to change it — nothing applies until you sign.`,
+    body: (S) =>
+      `Goal, ${S.sentence.unit}, budget, and when to check with you. Tap any underlined part to change it — nothing applies until you sign.`,
   },
   {
-    id: "risk-map", route: "/contract", target: "risk-map",
+    id: "risk-map",
+    route: "/contract",
+    target: "risk-map",
     title: "Where agents stop and ask",
-    body: (S) => `Each action sits on this map by how hard it is to undo. Anything past the line waits for you — right now that's “${lower(S.actionLabels.deposit)}” and “${lower(S.actionLabels.invites)}”. Drag the line or tap a dot to change it.`,
+    body: (S) =>
+      `Each action sits on this map by how hard it is to undo. Anything past the line waits for you — right now that's “${lower(S.actionLabels.deposit)}” and “${lower(S.actionLabels.invites)}”. Drag the line or tap a dot to change it.`,
   },
   {
-    id: "agents", route: "/contract", target: "agents",
+    id: "agents",
+    route: "/contract",
+    target: "agents",
     title: "Your agents' standing instructions",
-    body: (S) => `The ${S.agents.budget}, ${S.agents.venue} and ${S.agents.invites} each own part of the plan. Open one to set its instructions, what it may do without asking, or pause it. Changes take effect when you press Sign & run. The agents have already run once on this brief — let's look at what they did.`,
+    body: (S) =>
+      `The ${S.agents.budget}, ${S.agents.venue} and ${S.agents.invites} each own part of the plan. Open one to set its instructions, what it may do without asking, or pause it. Changes take effect when you press Sign & run. The agents have already run once on this brief — let's look at what they did.`,
   },
   {
-    id: "waiting", route: "/run", target: "waiting",
+    id: "waiting",
+    route: "/run",
+    target: "waiting",
     title: "Waiting on you",
-    body: () => "The run paused where your contract said to. Everything that needs you is listed here, in the order it blocks the plan. Agents never resume on their own.",
+    body: () =>
+      "The run paused where your contract said to. Everything that needs you is listed here, in the order it blocks the plan. Agents never resume on their own.",
   },
   {
-    id: "conflict", route: "/run", target: "conflict",
+    id: "conflict",
+    route: "/run",
+    target: "conflict",
     title: "The agents disagree",
-    body: (S) => { const p = S.options.find((o) => o.name === S.preference)!; return `The ${S.agents.venue} wants ${S.preference} (${S.fits(p.cap)}, ${S.requirement.tag}); the ${S.agents.budget} says it's over the ${S.place} share. Cosign never picks a side — choose one to continue.`; },
-    done: conflictSettled, hint: "Pick a side to continue",
+    body: (S) => {
+      const p = S.options.find((o) => o.name === S.preference)!;
+      return `The ${S.agents.venue} wants ${S.preference} (${S.fits(p.cap)}, ${S.requirement.tag}); the ${S.agents.budget} says it's over the ${S.place} share. Cosign never picks a side — choose one to continue.`;
+    },
+    done: conflictSettled,
+    hint: "Pick a side to continue",
   },
   {
-    id: "default", route: "/run", target: "default",
+    id: "default",
+    route: "/run",
+    target: "default",
     title: "A decision nobody made",
-    body: () => "An agent assumed this — nobody chose it. Keep it as a rule, accept it just this run, override it, or answer it from a connected resource like a calendar. Anything irreversible that depends on it stays locked until you decide.",
-    done: defaultsSettled, hint: "Resolve the open assumptions", skippable: true,
+    body: () =>
+      "An agent assumed this — nobody chose it. Keep it as a rule, accept it just this run, override it, or answer it from a connected resource like a calendar. Anything irreversible that depends on it stays locked until you decide.",
+    done: defaultsSettled,
+    hint: "Resolve the open assumptions",
+    skippable: true,
   },
   {
-    id: "commit", route: "/run", target: "commit",
+    id: "commit",
+    route: "/run",
+    target: "commit",
     title: "Approve what can't be undone, together",
-    body: (S) => `“${S.actionLabels.deposit}” and “${lower(S.actionLabels.invites)}” go on one card. Untick anything you don't want; nothing goes out until you approve.`,
-    done: commitSettled, hint: "Approve or decline the commit plan",
+    body: (S) =>
+      `“${S.actionLabels.deposit}” and “${lower(S.actionLabels.invites)}” go on one card. Untick anything you don't want; nothing goes out until you approve.`,
+    done: commitSettled,
+    hint: "Approve or decline the commit plan",
   },
   {
-    id: "receipt", route: "/ledger", target: "receipt",
+    id: "receipt",
+    route: "/ledger",
+    target: "receipt",
     title: "The receipt",
-    body: () => "Who decided each thing — you, your contract, or an agent's assumption — what it cost, and what changed since the last run of this case. That's the loop: brief, supervise, review. Run it again with different settings and compare.",
+    body: () =>
+      "Who decided each thing — you, your contract, or an agent's assumption — what it cost, and what changed since the last run of this case. That's the loop: brief, supervise, review. Run it again with different settings and compare.",
   },
 ];
 

@@ -31,10 +31,22 @@ export const useDemoStore = create<DemoData & Actions>((set, get) => ({
     return made;
   },
   deleteRows: (ids) => set((s) => ({ ledger: s.ledger.filter((r) => !ids.includes(r.id)) })),
-  setContract: (patch) => set((s) => ({ contract: { ...s.contract, ...patch, updated_at: new Date().toISOString() } })),
-  addVersion: (v) => set((s) => ({ versions: [...s.versions, { id: crypto.randomUUID(), signed_at: new Date().toISOString(), ...v }] })),
+  setContract: (patch) =>
+    set((s) => ({ contract: { ...s.contract, ...patch, updated_at: new Date().toISOString() } })),
+  addVersion: (v) =>
+    set((s) => ({
+      versions: [
+        ...s.versions,
+        { id: crypto.randomUUID(), signed_at: new Date().toISOString(), ...v },
+      ],
+    })),
   addShared: (run_id, summary) => {
-    const row: SharedReceiptRow = { id: crypto.randomUUID(), created_at: new Date().toISOString(), run_id, summary };
+    const row: SharedReceiptRow = {
+      id: crypto.randomUUID(),
+      created_at: new Date().toISOString(),
+      run_id,
+      summary,
+    };
     set((s) => ({ shared: [...s.shared, row] }));
     return row;
   },
@@ -43,6 +55,8 @@ export const useDemoStore = create<DemoData & Actions>((set, get) => ({
 
 /** Ledger in the order the old query returned: newest first, steps in sequence. */
 export const sortedLedger = (): LedgerRow[] =>
-  [...useDemoStore.getState().ledger].sort((a, b) => b.created_at.localeCompare(a.created_at) || a.seq - b.seq);
+  [...useDemoStore.getState().ledger].sort(
+    (a, b) => b.created_at.localeCompare(a.created_at) || a.seq - b.seq,
+  );
 
 export const getState = () => useDemoStore.getState();

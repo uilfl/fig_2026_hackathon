@@ -14,10 +14,10 @@ describe("buildSeed with seedIds", () => {
     const b = buildSeed(undefined, seedIds());
     expect(a.ledger.map((r) => r.id)).toEqual(b.ledger.map((r) => r.id));
     expect(new Set(a.ledger.map((r) => r.id)).size).toBe(a.ledger.length);
-    expect(a.ledger.every((r) => r.run_id === a.ledger[0].run_id)).toBe(true);
+    expect(a.ledger.every((r) => r.run_id === a.ledger[0]!.run_id)).toBe(true);
   });
 
   it("still uses random ids by default (reset runs inside a handler)", () => {
-    expect(buildSeed().ledger[0].id).not.toBe(buildSeed().ledger[0].id);
+    expect(buildSeed().ledger[0]!.id).not.toBe(buildSeed().ledger[0]!.id);
   });
 });

@@ -141,22 +141,91 @@
 }
 
 @layer base {
-  body { font-family: var(--font-sans); }
-  h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.01em; }
+  body {
+    font-family: var(--font-sans);
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
 }
-@utility ledger-rule { background-image: repeating-linear-gradient(to bottom, transparent 0 39px, var(--color-border) 39px 40px); }
-@utility stamp { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.68rem; border: 1.5px solid currentColor; padding: 0.1rem 0.45rem; border-radius: 2px; }
+@utility ledger-rule {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0 39px,
+    var(--color-border) 39px 40px
+  );
+}
+@utility stamp {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+  border: 1.5px solid currentColor;
+  padding: 0.1rem 0.45rem;
+  border-radius: 2px;
+}
 
-@keyframes edge-flash { from { stroke-dashoffset: 24; stroke-dasharray: 6 6; stroke-width: 2.5; } to { stroke-dashoffset: 0; } }
-.edge-flash { animation: edge-flash 400ms ease-out; }
+@keyframes edge-flash {
+  from {
+    stroke-dashoffset: 24;
+    stroke-dasharray: 6 6;
+    stroke-width: 2.5;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.edge-flash {
+  animation: edge-flash 400ms ease-out;
+}
 
-@keyframes pulse-border { 0%, 100% { border-color: var(--src-pending); } 50% { border-color: color-mix(in oklch, var(--src-pending) 35%, transparent); } }
-.pulse-border { animation: pulse-border 2s ease-in-out infinite; }
+@keyframes pulse-border {
+  0%,
+  100% {
+    border-color: var(--src-pending);
+  }
+  50% {
+    border-color: color-mix(in oklch, var(--src-pending) 35%, transparent);
+  }
+}
+.pulse-border {
+  animation: pulse-border 2s ease-in-out infinite;
+}
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
 }
 
-@keyframes token-flash { from { background-color: color-mix(in oklch, var(--accent) 28%, transparent); } to { background-color: transparent; } }
-.token-flash { animation: token-flash 300ms ease-out; }
-@keyframes rise-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
-.rise-in { animation: rise-in 200ms ease-out both; }
+@keyframes token-flash {
+  from {
+    background-color: color-mix(in oklch, var(--accent) 28%, transparent);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+.token-flash {
+  animation: token-flash 300ms ease-out;
+}
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise-in {
+  animation: rise-in 200ms ease-out both;
+}
