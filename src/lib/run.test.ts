@@ -21,6 +21,17 @@ describe("demo store", () => {
     expect(ledger.every((r) => typeof r.id === "string" && r.id.length > 0)).toBe(true);
   });
 
+  it("a signed contract keeps your own agents when read back", async () => {
+    const agent = {
+      id: "a1",
+      name: "Catering agent",
+      note: "Finds a caterer",
+      scenario: "offsite",
+    };
+    getState().setContract({ custom_agents: [agent] });
+    expect((await contract()).custom_agents).toEqual([agent]);
+  });
+
   it("reset discards changes and returns to a fresh seed", async () => {
     await startRun();
     expect(new Set(getState().ledger.map((r) => r.run_id)).size).toBe(2);

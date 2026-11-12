@@ -1,5 +1,16 @@
 import { describe, expect, it } from "vitest";
-import { agentSettings, agentSummary, withAgentSetting, UP_TO_AGENT } from "./agents";
+import {
+  AGENT_NAME_MAX,
+  AGENT_NOTE_MAX,
+  agentNameError,
+  agentSettings,
+  agentSummary,
+  customAgentsFor,
+  withAgentSetting,
+  withCustomAgent,
+  withoutCustomAgent,
+  UP_TO_AGENT,
+} from "./agents";
 import { DATES_KEY, SHARE_KEY, runScenario, type Contract } from "./engine";
 import { scenarioOf } from "./scenarios";
 
@@ -181,5 +192,53 @@ describe("dinner case", () => {
       expect.objectContaining({ key: SHARE_KEY, value: "Save for wine", scenario: "dinner" }),
     ]);
     expect(agentSettings(c, D, "budget").instructions[0]!.value).toBe("Save for wine");
+  });
+});
+
+describe("agents the user adds", () => {
+  const D = scenarioOf("dinner");
+  const add = (c: Contract, name: string, id = name, note = "") =>
+    withCustomAgent(c, S, { id, name, note });
+
+  it("adds a named agent to the contract's case, trimmed, and removes it by id", () => {
+    const c = add(base, "  Catering agent ", "a1", "  Finds a caterer for the group  ");
+    expect(customAgentsFor(c)).toEqual([
+      {
+        id: "a1",
+        name: "Catering agent",
+        note: "Finds a caterer for the group",
+        scenario: "offsite",
+      },
+    ]);
+    expect(customAgentsFor(withoutCustomAgent(c, "a1"))).toEqual([]);
+  });
+  it("cuts the note to its limit", () => {
+    const c = add(base, "Notes agent", "a1", "x".repeat(AGENT_NOTE_MAX + 20));
+    expect(customAgentsFor(c)[0]!.note).toHaveLength(AGENT_NOTE_MAX);
+  });
+  it("belongs to one case: an offsite agent isn't on the dinner's team", () => {
+    const c = add(base, "Catering agent");
+    expect(customAgentsFor({ ...c, scenario: "dinner" })).toEqual([]);
+  });
+  it("rejects names that would clash with who decided a step", () => {
+    expect(agentNameError(base, S, "   ")).toBe("Give it a name.");
+    expect(agentNameError(base, S, "x".repeat(AGENT_NAME_MAX + 1))).toMatch(/under/);
+    expect(agentNameError(base, S, "budget AGENT")).toMatch(/already on the team/);
+    expect(agentNameError(base, S, "cosign")).toMatch(/already on the team/);
+    expect(agentNameError(base, S, "You")).toMatch(/already on the team/);
+    expect(agentNameError(base, D, "Restaurant agent")).toMatch(/already on the team/);
+    expect(agentNameError(add(base, "Catering agent"), S, " catering agent")).toMatch(
+      /already on the team/,
+    );
+    expect(agentNameError(base, S, "Catering agent")).toBeNull();
+  });
+  it("an invalid name leaves the contract unchanged", () => {
+    expect(add(base, "Venue agent")).toBe(base);
+  });
+  it("takes no steps: the plan is identical with or without one", () => {
+    // Compare as JSON: steps carry fresh `check` closures, which never deep-equal across calls.
+    expect(JSON.stringify(runScenario(add(base, "Catering agent")))).toBe(
+      JSON.stringify(runScenario(base)),
+    );
   });
 });

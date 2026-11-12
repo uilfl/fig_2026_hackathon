@@ -152,4 +152,21 @@ describe("cases in versions", () => {
     expect(d).toContain("+ Rule: Save for wine");
     expect(d.some((l) => l.startsWith("Rule: Get the best venue"))).toBe(false);
   });
+  it("adding or removing your own agent is a versioned change in its case only", () => {
+    const agent = { id: "a1", name: "Catering agent", note: "", scenario: "offsite" };
+    const prev = snap({});
+    const next = snap({ custom_agents: [agent] });
+    expect(contractDiff(prev, next)).toEqual(["+ Agent: Catering agent"]);
+    expect(contractDiff(next, prev)).toEqual(["− Agent: Catering agent"]);
+    expect(signLabel({ version: 2, snapshot: prev, diff: [], signed_at: "" }, next).label).toBe(
+      "Sign v3 & run agents",
+    );
+    // An offsite agent is neither added nor removed when the next version is the dinner.
+    const dinner = snap({
+      scenario: "dinner",
+      goal: "Host a client dinner for 8 guests",
+      custom_agents: [agent],
+    });
+    expect(contractDiff(next, dinner).some((l) => l.includes("Agent:"))).toBe(false);
+  });
 });

@@ -12,10 +12,11 @@ import {
   ruleFor,
   type ActionKey,
   type Contract,
+  type CustomAgent,
   type Rule,
   type Triggers,
 } from "./engine";
-import { tierOf, type AgentRole, type Role, type Scenario } from "./scenarios";
+import { scenarioOf, tierOf, type AgentRole, type Role, type Scenario } from "./scenarios";
 
 export const AGENT_ROLES: AgentRole[] = ["budget", "venue", "invites"];
 
@@ -252,3 +253,54 @@ export const pausedFor = (key: ActionKey, agents: Contract["agents"]) =>
 /** Steps an agent took in a run. */
 export const agentSteps = <T extends { agent: string }>(run: T[], S: Scenario, role: AgentRole) =>
   run.filter((e) => e.agent === S.agents[role]);
+
+/* ── Agents the user adds (name + note; they take no steps) ───────────────── */
+
+export const AGENT_NAME_MAX = 40;
+export const AGENT_NOTE_MAX = 140;
+/** Speakers that aren't agents but share the name space ("Cosign" referees, "You" decide). */
+const RESERVED_NAMES = ["Cosign", "You"];
+
+const sameName = (a: string, b: string) => a.trim().toLowerCase() === b.trim().toLowerCase();
+
+/** The contract's user-added agents for its own case (another case's never show). */
+export const customAgentsFor = (
+  contract: Pick<Contract, "scenario" | "custom_agents">,
+): CustomAgent[] => {
+  const id = scenarioOf(contract.scenario).id;
+  return (contract.custom_agents ?? []).filter((a) => a.scenario === id);
+};
+
+/** Why a name can't be used, or null. A clash would make steps attributable to the wrong agent. */
+export function agentNameError(contract: Contract, S: Scenario, name: string): string | null {
+  const n = name.trim();
+  if (!n) return "Give it a name.";
+  if (n.length > AGENT_NAME_MAX) return `Keep the name under ${AGENT_NAME_MAX} characters.`;
+  const taken = [
+    ...Object.values(S.agents),
+    ...RESERVED_NAMES,
+    ...customAgentsFor({ ...contract, scenario: S.id }).map((a) => a.name),
+  ];
+  return taken.some((t) => sameName(t, n)) ? `“${n}” is already on the team.` : null;
+}
+
+/** Add an agent to the contract's case. Invalid names leave the contract unchanged. `id` comes from the caller. */
+export function withCustomAgent<C extends Contract>(
+  contract: C,
+  S: Scenario,
+  a: { id: string; name: string; note: string },
+): C {
+  if (agentNameError(contract, S, a.name)) return contract;
+  const agent: CustomAgent = {
+    id: a.id,
+    name: a.name.trim(),
+    note: a.note.trim().slice(0, AGENT_NOTE_MAX),
+    scenario: S.id,
+  };
+  return { ...contract, custom_agents: [...(contract.custom_agents ?? []), agent] };
+}
+
+export const withoutCustomAgent = <C extends Contract>(contract: C, id: string): C => ({
+  ...contract,
+  custom_agents: (contract.custom_agents ?? []).filter((a) => a.id !== id),
+});

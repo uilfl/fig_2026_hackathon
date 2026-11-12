@@ -101,9 +101,12 @@ export function scopeDiff(saved: ScopeValue, now: Required<ScopeValue>): string[
 }
 /** Per-agent settings that aren't rules: a paused agent's every step waits for you. */
 export type AgentSettings = Partial<Record<AgentRole, { paused?: boolean | undefined }>>;
+/** An agent the user added: a name and a note. It takes no steps; it belongs to one case, like a rule. */
+export type CustomAgent = { id: string; name: string; note: string; scenario: string };
 /**
  * `scenario` = demo case id (scenarios.ts); missing means the offsite.
  * `resources` = ids of connected resources (scenarios.ts `Resource`); only the contract's own case's count.
+ * `custom_agents` = user-added agents (see `CustomAgent`); only the contract's own case's count.
  */
 export type Contract = {
   goal: string;
@@ -114,6 +117,7 @@ export type Contract = {
   scenario?: string | undefined;
   agents?: AgentSettings | undefined;
   resources?: string[] | undefined;
+  custom_agents?: CustomAgent[] | undefined;
 };
 
 /** The pause reason if the contract pauses the agent taking this step, else null. */
