@@ -1,0 +1,3640 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`offsite scenario stays identical through the scenario refactor > ask before everything, 20 people 1`] = `
+[
+  {
+    "action": "Set goal “Plan a two-day team offsite for 12 people”, 20 people, $6,000 cap",
+    "agent": "You",
+    "criteria_out": [
+      {
+        "key": "user_contract",
+        "label": "Your delegation contract",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "user_contract",
+    "criterion_label": "Your delegation contract",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [],
+    "kind": "contract",
+    "options_considered": [],
+    "preview": null,
+    "seq": 0,
+    "source": "user",
+    "status": "done",
+  },
+  {
+    "action": "Allocated 60% of budget ($3,600) to the venue",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "venue_share_60",
+        "label": "Spend 60% of the budget on the venue",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_share_60",
+    "criterion_label": "Spend 60% of the budget on the venue",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [
+      {
+        "option": "50%",
+        "reason": "Agent's usual split is 60%",
+      },
+      {
+        "option": "70%",
+        "reason": "Agent's usual split is 60%",
+      },
+    ],
+    "kind": "select",
+    "options_considered": [
+      "50%",
+      "60%",
+      "70%",
+    ],
+    "preview": {
+      "blocked_by": [
+        "Free to undo — your setting: “Ask before every side effect”",
+      ],
+      "reversibility": "free",
+      "reversibility_note": "Nothing leaves Cosign; can be changed any time.",
+      "what": "Allocated 60% of budget ($3,600) to the venue",
+    },
+    "seq": 1,
+    "source": "pending",
+    "status": "pending",
+  },
+  {
+    "action": "Agents disagree: Venue agent wants Ridgeview Inn (fits 24, parking); Budget agent says over venue share by $1,600",
+    "agent": "Cosign",
+    "criteria_out": [
+      {
+        "key": "venue_conflict",
+        "label": "Agents disagree on the venue",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_conflict",
+    "criterion_label": "Agents disagree on the venue",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [],
+    "inputs": [
+      1,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "venue",
+      "budget",
+    ],
+    "preview": {
+      "blocked_by": [
+        "Agents disagree — Cosign never picks a side for you",
+      ],
+      "reversibility": "free",
+      "reversibility_note": "Nothing is booked yet.",
+      "what": "Venue agent wants Ridgeview Inn — fits 24, parking. Budget agent says: over venue share by $1,600.",
+    },
+    "seq": 2,
+    "source": "pending",
+    "status": "pending",
+  },
+  {
+    "action": "Shortlisted Lakeside Lodge",
+    "agent": "Venue agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Fits all 20 people",
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 60% venue share ($3,600)",
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Fits all 20 people",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 60% venue share ($3,600)",
+        "source": "default",
+        "verified": true,
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "require_parking",
+    "criterion_label": "Venues must have on-site parking",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 2,
+    "exempt": [],
+    "filtered_out": [
+      {
+        "option": "The Foundry Loft",
+        "reason": "Fits 16, need 20",
+      },
+      {
+        "option": "Cedar Hall",
+        "reason": "Fits 10, need 20",
+      },
+      {
+        "option": "Harbor House",
+        "reason": "Fits 14, need 20",
+      },
+      {
+        "option": "Ridgeview Inn",
+        "reason": "$5,200 over venue share $3,600",
+      },
+    ],
+    "filtered_out_by": [
+      {
+        "criterion": "headcount",
+        "option": "The Foundry Loft",
+      },
+      {
+        "criterion": "headcount",
+        "option": "Cedar Hall",
+      },
+      {
+        "criterion": "headcount",
+        "option": "Harbor House",
+      },
+      {
+        "criterion": "venue_share_60",
+        "option": "Ridgeview Inn",
+      },
+    ],
+    "inputs": [
+      1,
+      2,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Lakeside Lodge",
+      "The Foundry Loft",
+      "Cedar Hall",
+      "Harbor House",
+      "Ridgeview Inn",
+    ],
+    "preview": {
+      "blocked_by": [
+        "Free to undo — your setting: “Ask before every side effect”",
+      ],
+      "reversibility": "free",
+      "reversibility_note": "Nothing leaves Cosign; can be changed any time.",
+      "what": "Shortlisted Lakeside Lodge",
+    },
+    "seq": 3,
+    "source": "pending",
+    "status": "blocked",
+  },
+  {
+    "action": "Picked dates Mar 14–15",
+    "agent": "Venue agent",
+    "criteria_out": [
+      {
+        "key": "earliest_weekend",
+        "label": "Book the earliest open weekend",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "earliest_weekend",
+    "criterion_label": "Book the earliest open weekend",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 3,
+    "filtered_out": [
+      {
+        "option": "Mar 21–22",
+        "reason": "Later than earliest",
+      },
+      {
+        "option": "Apr 4–5",
+        "reason": "Later than earliest",
+      },
+    ],
+    "inputs": [
+      3,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Mar 14–15",
+      "Mar 21–22",
+      "Apr 4–5",
+    ],
+    "preview": {
+      "blocked_by": [
+        "Free to undo — your setting: “Ask before every side effect”",
+      ],
+      "reversibility": "free",
+      "reversibility_note": "Nothing leaves Cosign; can be changed any time.",
+      "what": "Picked dates Mar 14–15",
+    },
+    "seq": 4,
+    "source": "pending",
+    "status": "blocked",
+  },
+  {
+    "action": "Pay venue deposit to Lakeside Lodge",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 1600,
+      "memo": "50% deposit for Mar 14–15, non-refundable",
+      "payee": "Lakeside Lodge",
+      "refundable": false,
+      "type": "spend",
+    },
+    "filtered_out": [],
+    "inputs": [
+      1,
+      3,
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Lakeside Lodge",
+    ],
+    "preview": {
+      "amount": 1600,
+      "blocked_by": [
+        "Cannot be undone — your setting: “Ask before every side effect”",
+      ],
+      "reversibility": "never",
+      "reversibility_note": "Non-refundable. Money cannot be recovered.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 1600,
+      "what": "Pay $1,600 to Lakeside Lodge — 50% deposit for Mar 14–15, non-refundable",
+    },
+    "seq": 5,
+    "source": "pending",
+    "status": "blocked",
+  },
+  {
+    "action": "Reserve catering with Green Fork",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 1700,
+      "cancel_by": "Mar 7",
+      "memo": "20 × $85 lunch",
+      "payee": "Green Fork Catering",
+      "refundable": true,
+      "type": "spend",
+    },
+    "filtered_out": [
+      {
+        "option": "Basil & Co ($110/person)",
+        "reason": "Pricier for the same menu",
+      },
+    ],
+    "inputs": [
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Green Fork ($85/person)",
+      "Basil & Co ($110/person)",
+    ],
+    "preview": {
+      "amount": 1700,
+      "blocked_by": [
+        "Undo until deadline — your setting: “Ask before every side effect”",
+      ],
+      "reversibility": "until_deadline",
+      "reversibility_note": "Fully refundable until Mar 7.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 3300,
+      "what": "Pay $1,700 to Green Fork Catering — 20 × $85 lunch",
+    },
+    "seq": 6,
+    "source": "pending",
+    "status": "blocked",
+  },
+  {
+    "action": "Send calendar invites",
+    "agent": "Invites agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Invite all 20 people in your headcount",
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Invite all 20 people in your headcount",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "headcount",
+    "criterion_label": "Invite all 20 people in your headcount",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 5,
+    "effect": {
+      "channel": "email",
+      "recipients": 20,
+      "subject": "Team offsite at Lakeside Lodge, Mar 14–15",
+      "type": "send",
+    },
+    "filtered_out": [],
+    "inputs": [
+      4,
+      5,
+    ],
+    "kind": "send",
+    "options_considered": [
+      "All 20 people",
+    ],
+    "preview": {
+      "amount": undefined,
+      "blocked_by": [
+        "Cannot be undone — your setting: “Ask before every side effect”",
+      ],
+      "reversibility": "never",
+      "reversibility_note": "Sent emails cannot be unsent.",
+      "saved_scope": undefined,
+      "scope": {
+        "recipients": "20 people",
+        "recipients_hash": "aaae594c",
+        "template": "Team offsite at Lakeside Lodge, Mar 14–15",
+        "template_hash": "8a5a5e08",
+      },
+      "total_after": undefined,
+      "what": "Email 20 people: “Team offsite at Lakeside Lodge, Mar 14–15”",
+    },
+    "seq": 7,
+    "source": "pending",
+    "status": "blocked",
+  },
+]
+`;
+
+exports[`offsite scenario stays identical through the scenario refactor > dates + parking override 1`] = `
+[
+  {
+    "action": "Set goal “Plan a two-day team offsite for 12 people”, 12 people, $6,000 cap",
+    "agent": "You",
+    "criteria_out": [
+      {
+        "key": "user_contract",
+        "label": "Your delegation contract",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "user_contract",
+    "criterion_label": "Your delegation contract",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [],
+    "kind": "contract",
+    "options_considered": [],
+    "preview": null,
+    "seq": 0,
+    "source": "user",
+    "status": "done",
+  },
+  {
+    "action": "Allocated 60% of budget ($3,600) to the venue",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "venue_share_60",
+        "label": "Spend 60% of the budget on the venue",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_share_60",
+    "criterion_label": "Spend 60% of the budget on the venue",
+    "default_key": "venue_share_60",
+    "default_label": "Spend 60% of the budget on the venue",
+    "filtered_out": [
+      {
+        "option": "50%",
+        "reason": "Agent's usual split is 60%",
+      },
+      {
+        "option": "70%",
+        "reason": "Agent's usual split is 60%",
+      },
+    ],
+    "kind": "select",
+    "options_considered": [
+      "50%",
+      "60%",
+      "70%",
+    ],
+    "preview": null,
+    "seq": 1,
+    "source": "default",
+    "status": "done",
+  },
+  {
+    "action": "You settled a disagreement between Venue and Budget agents → Lakeside Lodge",
+    "agent": "Cosign",
+    "criteria_out": [
+      {
+        "key": "venue_conflict",
+        "label": "Agents disagree on the venue",
+        "source": "you",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_conflict",
+    "criterion_label": "Agents disagree on the venue",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [],
+    "inputs": [
+      1,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "venue",
+      "budget",
+    ],
+    "preview": null,
+    "seq": 2,
+    "source": "user",
+    "status": "done",
+  },
+  {
+    "action": "Shortlisted Lakeside Lodge",
+    "agent": "Venue agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Fits all 12 people",
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 60% venue share ($3,600)",
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Fits all 12 people",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 60% venue share ($3,600)",
+        "source": "default",
+        "verified": true,
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+        "source": "you",
+        "verified": true,
+      },
+    ],
+    "criterion": "require_parking",
+    "criterion_label": "Venues must have on-site parking",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 2,
+    "exempt": [],
+    "filtered_out": [
+      {
+        "option": "Cedar Hall",
+        "reason": "Fits 10, need 12",
+      },
+      {
+        "option": "Ridgeview Inn",
+        "reason": "$5,200 over venue share $3,600",
+      },
+    ],
+    "filtered_out_by": [
+      {
+        "criterion": "headcount",
+        "option": "Cedar Hall",
+      },
+      {
+        "criterion": "venue_share_60",
+        "option": "Ridgeview Inn",
+      },
+    ],
+    "inputs": [
+      1,
+      2,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Lakeside Lodge",
+      "The Foundry Loft",
+      "Cedar Hall",
+      "Harbor House",
+      "Ridgeview Inn",
+    ],
+    "preview": null,
+    "seq": 3,
+    "source": "default",
+    "status": "done",
+  },
+  {
+    "action": "Picked dates Apr 4–5",
+    "agent": "Venue agent",
+    "criteria_out": [
+      {
+        "key": "earliest_weekend",
+        "label": "Book the earliest open weekend",
+        "source": "you",
+        "verified": true,
+      },
+    ],
+    "criterion": "earliest_weekend",
+    "criterion_label": "Book the earliest open weekend",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 3,
+    "filtered_out": [
+      {
+        "option": "Mar 14–15",
+        "reason": "You chose otherwise",
+      },
+      {
+        "option": "Mar 21–22",
+        "reason": "You chose otherwise",
+      },
+    ],
+    "inputs": [
+      3,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Mar 14–15",
+      "Mar 21–22",
+      "Apr 4–5",
+    ],
+    "preview": null,
+    "seq": 4,
+    "source": "user",
+    "status": "done",
+  },
+  {
+    "action": "Pay venue deposit to Lakeside Lodge",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 1600,
+      "memo": "50% deposit for Apr 4–5, non-refundable",
+      "payee": "Lakeside Lodge",
+      "refundable": false,
+      "type": "spend",
+    },
+    "filtered_out": [],
+    "inputs": [
+      1,
+      3,
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Lakeside Lodge",
+    ],
+    "preview": {
+      "amount": 1600,
+      "blocked_by": [
+        "Cannot be undone — your setting: “Ask before anything that can't be undone”",
+      ],
+      "reversibility": "never",
+      "reversibility_note": "Non-refundable. Money cannot be recovered.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 1600,
+      "what": "Pay $1,600 to Lakeside Lodge — 50% deposit for Apr 4–5, non-refundable",
+    },
+    "seq": 5,
+    "source": "pending",
+    "status": "pending",
+  },
+  {
+    "action": "Reserve catering with Green Fork",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 1020,
+      "cancel_by": "Mar 7",
+      "memo": "12 × $85 lunch",
+      "payee": "Green Fork Catering",
+      "refundable": true,
+      "type": "spend",
+    },
+    "filtered_out": [
+      {
+        "option": "Basil & Co ($110/person)",
+        "reason": "Pricier for the same menu",
+      },
+    ],
+    "inputs": [
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Green Fork ($85/person)",
+      "Basil & Co ($110/person)",
+    ],
+    "preview": {
+      "amount": 1020,
+      "blocked_by": undefined,
+      "reversibility": "until_deadline",
+      "reversibility_note": "Fully refundable until Mar 7.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 2620,
+      "what": "Pay $1,020 to Green Fork Catering — 12 × $85 lunch",
+    },
+    "seq": 6,
+    "source": "contract",
+    "status": "done",
+  },
+  {
+    "action": "Send calendar invites",
+    "agent": "Invites agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Invite all 12 people in your headcount",
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Invite all 12 people in your headcount",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "headcount",
+    "criterion_label": "Invite all 12 people in your headcount",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 5,
+    "effect": {
+      "channel": "email",
+      "recipients": 12,
+      "subject": "Team offsite at Lakeside Lodge, Apr 4–5",
+      "type": "send",
+    },
+    "filtered_out": [],
+    "inputs": [
+      4,
+      5,
+    ],
+    "kind": "send",
+    "options_considered": [
+      "All 12 people",
+    ],
+    "preview": {
+      "amount": undefined,
+      "blocked_by": [
+        "Cannot be undone — your setting: “Ask before anything that can't be undone”",
+      ],
+      "reversibility": "never",
+      "reversibility_note": "Sent emails cannot be unsent.",
+      "saved_scope": undefined,
+      "scope": {
+        "recipients": "12 people",
+        "recipients_hash": "eb5920d",
+        "template": "Team offsite at Lakeside Lodge, Apr 4–5",
+        "template_hash": "c8c12009",
+      },
+      "total_after": undefined,
+      "what": "Email 12 people: “Team offsite at Lakeside Lodge, Apr 4–5”",
+    },
+    "seq": 7,
+    "source": "pending",
+    "status": "blocked",
+  },
+]
+`;
+
+exports[`offsite scenario stays identical through the scenario refactor > decline alternatives 1`] = `
+[
+  {
+    "key": "require_parking",
+    "kind": "venue",
+    "note": "No on-site parking",
+    "passes": false,
+    "preview": "Deposit $1,300 to The Foundry Loft · fits 16 · no parking · Mar 14–15",
+    "value": "The Foundry Loft",
+  },
+  {
+    "key": "require_parking",
+    "kind": "venue",
+    "note": "Fits 10, need 12",
+    "passes": false,
+    "preview": "Deposit $950 to Cedar Hall · fits 10 · parking · Mar 14–15",
+    "value": "Cedar Hall",
+  },
+  {
+    "key": "require_parking",
+    "kind": "venue",
+    "note": "No on-site parking",
+    "passes": false,
+    "preview": "Deposit $1,200 to Harbor House · fits 14 · no parking · Mar 14–15",
+    "value": "Harbor House",
+  },
+  {
+    "key": "require_parking",
+    "kind": "venue",
+    "note": "Over the 60% venue share ($3,600)",
+    "passes": false,
+    "preview": "Deposit $2,600 to Ridgeview Inn · fits 24 · parking · Mar 14–15",
+    "value": "Ridgeview Inn",
+  },
+  {
+    "key": "earliest_weekend",
+    "kind": "dates",
+    "passes": true,
+    "preview": "Deposit $1,600 to Lakeside Lodge for Mar 21–22",
+    "value": "Mar 21–22",
+  },
+  {
+    "key": "earliest_weekend",
+    "kind": "dates",
+    "passes": true,
+    "preview": "Deposit $1,600 to Lakeside Lodge for Apr 4–5",
+    "value": "Apr 4–5",
+  },
+]
+`;
+
+exports[`offsite scenario stays identical through the scenario refactor > kept parking rule 1`] = `
+[
+  {
+    "action": "Set goal “Plan a two-day team offsite for 12 people”, 12 people, $6,000 cap",
+    "agent": "You",
+    "criteria_out": [
+      {
+        "key": "user_contract",
+        "label": "Your delegation contract",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "user_contract",
+    "criterion_label": "Your delegation contract",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [],
+    "kind": "contract",
+    "options_considered": [],
+    "preview": null,
+    "seq": 0,
+    "source": "user",
+    "status": "done",
+  },
+  {
+    "action": "Allocated 60% of budget ($3,600) to the venue",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "venue_share_60",
+        "label": "Spend 60% of the budget on the venue",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_share_60",
+    "criterion_label": "Spend 60% of the budget on the venue",
+    "default_key": "venue_share_60",
+    "default_label": "Spend 60% of the budget on the venue",
+    "filtered_out": [
+      {
+        "option": "50%",
+        "reason": "Agent's usual split is 60%",
+      },
+      {
+        "option": "70%",
+        "reason": "Agent's usual split is 60%",
+      },
+    ],
+    "kind": "select",
+    "options_considered": [
+      "50%",
+      "60%",
+      "70%",
+    ],
+    "preview": null,
+    "seq": 1,
+    "source": "default",
+    "status": "done",
+  },
+  {
+    "action": "You settled a disagreement between Venue and Budget agents → Lakeside Lodge",
+    "agent": "Cosign",
+    "criteria_out": [
+      {
+        "key": "venue_conflict",
+        "label": "Agents disagree on the venue",
+        "source": "you",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_conflict",
+    "criterion_label": "Agents disagree on the venue",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [],
+    "inputs": [
+      1,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "venue",
+      "budget",
+    ],
+    "preview": null,
+    "seq": 2,
+    "source": "user",
+    "status": "done",
+  },
+  {
+    "action": "Shortlisted Lakeside Lodge",
+    "agent": "Venue agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Fits all 12 people",
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 60% venue share ($3,600)",
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Fits all 12 people",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 60% venue share ($3,600)",
+        "source": "default",
+        "verified": true,
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+        "source": "rule",
+        "verified": true,
+      },
+    ],
+    "criterion": "require_parking",
+    "criterion_label": "Venues must have on-site parking",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 2,
+    "exempt": [],
+    "filtered_out": [
+      {
+        "option": "The Foundry Loft",
+        "reason": "No on-site parking",
+      },
+      {
+        "option": "Cedar Hall",
+        "reason": "Fits 10, need 12",
+      },
+      {
+        "option": "Harbor House",
+        "reason": "No on-site parking",
+      },
+      {
+        "option": "Ridgeview Inn",
+        "reason": "$5,200 over venue share $3,600",
+      },
+    ],
+    "filtered_out_by": [
+      {
+        "criterion": "require_parking",
+        "option": "The Foundry Loft",
+      },
+      {
+        "criterion": "headcount",
+        "option": "Cedar Hall",
+      },
+      {
+        "criterion": "require_parking",
+        "option": "Harbor House",
+      },
+      {
+        "criterion": "venue_share_60",
+        "option": "Ridgeview Inn",
+      },
+    ],
+    "inputs": [
+      1,
+      2,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Lakeside Lodge",
+      "The Foundry Loft",
+      "Cedar Hall",
+      "Harbor House",
+      "Ridgeview Inn",
+    ],
+    "preview": null,
+    "seq": 3,
+    "source": "default",
+    "status": "done",
+  },
+  {
+    "action": "Picked dates Mar 14–15",
+    "agent": "Venue agent",
+    "criteria_out": [
+      {
+        "key": "earliest_weekend",
+        "label": "Book the earliest open weekend",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "earliest_weekend",
+    "criterion_label": "Book the earliest open weekend",
+    "default_key": "earliest_weekend",
+    "default_label": "Book the earliest open weekend",
+    "depends_on": 3,
+    "filtered_out": [
+      {
+        "option": "Mar 21–22",
+        "reason": "Later than earliest",
+      },
+      {
+        "option": "Apr 4–5",
+        "reason": "Later than earliest",
+      },
+    ],
+    "inputs": [
+      3,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Mar 14–15",
+      "Mar 21–22",
+      "Apr 4–5",
+    ],
+    "preview": null,
+    "seq": 4,
+    "source": "default",
+    "status": "done",
+  },
+  {
+    "action": "Pay venue deposit to Lakeside Lodge",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 1600,
+      "memo": "50% deposit for Mar 14–15, non-refundable",
+      "payee": "Lakeside Lodge",
+      "refundable": false,
+      "type": "spend",
+    },
+    "filtered_out": [],
+    "inputs": [
+      1,
+      3,
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Lakeside Lodge",
+    ],
+    "preview": {
+      "amount": 1600,
+      "blocked_by": [
+        "Cannot be undone — your setting: “Ask before anything that can't be undone”",
+      ],
+      "reversibility": "never",
+      "reversibility_note": "Non-refundable. Money cannot be recovered.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 1600,
+      "what": "Pay $1,600 to Lakeside Lodge — 50% deposit for Mar 14–15, non-refundable",
+    },
+    "seq": 5,
+    "source": "pending",
+    "status": "pending",
+  },
+  {
+    "action": "Reserve catering with Green Fork",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 1020,
+      "cancel_by": "Mar 7",
+      "memo": "12 × $85 lunch",
+      "payee": "Green Fork Catering",
+      "refundable": true,
+      "type": "spend",
+    },
+    "filtered_out": [
+      {
+        "option": "Basil & Co ($110/person)",
+        "reason": "Pricier for the same menu",
+      },
+    ],
+    "inputs": [
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Green Fork ($85/person)",
+      "Basil & Co ($110/person)",
+    ],
+    "preview": {
+      "amount": 1020,
+      "blocked_by": undefined,
+      "reversibility": "until_deadline",
+      "reversibility_note": "Fully refundable until Mar 7.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 2620,
+      "what": "Pay $1,020 to Green Fork Catering — 12 × $85 lunch",
+    },
+    "seq": 6,
+    "source": "contract",
+    "status": "done",
+  },
+  {
+    "action": "Send calendar invites",
+    "agent": "Invites agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Invite all 12 people in your headcount",
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Invite all 12 people in your headcount",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "headcount",
+    "criterion_label": "Invite all 12 people in your headcount",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 5,
+    "effect": {
+      "channel": "email",
+      "recipients": 12,
+      "subject": "Team offsite at Lakeside Lodge, Mar 14–15",
+      "type": "send",
+    },
+    "filtered_out": [],
+    "inputs": [
+      4,
+      5,
+    ],
+    "kind": "send",
+    "options_considered": [
+      "All 12 people",
+    ],
+    "preview": {
+      "amount": undefined,
+      "blocked_by": [
+        "Cannot be undone — your setting: “Ask before anything that can't be undone”",
+      ],
+      "reversibility": "never",
+      "reversibility_note": "Sent emails cannot be unsent.",
+      "saved_scope": undefined,
+      "scope": {
+        "recipients": "12 people",
+        "recipients_hash": "eb5920d",
+        "template": "Team offsite at Lakeside Lodge, Mar 14–15",
+        "template_hash": "8a5a5e08",
+      },
+      "total_after": undefined,
+      "what": "Email 12 people: “Team offsite at Lakeside Lodge, Mar 14–15”",
+    },
+    "seq": 7,
+    "source": "pending",
+    "status": "blocked",
+  },
+]
+`;
+
+exports[`offsite scenario stays identical through the scenario refactor > never ask, small budget 1`] = `
+[
+  {
+    "action": "Set goal “Plan a two-day team offsite for 12 people”, 12 people, $2,000 cap",
+    "agent": "You",
+    "criteria_out": [
+      {
+        "key": "user_contract",
+        "label": "Your delegation contract",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "user_contract",
+    "criterion_label": "Your delegation contract",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [],
+    "kind": "contract",
+    "options_considered": [],
+    "preview": null,
+    "seq": 0,
+    "source": "user",
+    "status": "done",
+  },
+  {
+    "action": "Allocated 60% of budget ($1,200) to the venue",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "venue_share_60",
+        "label": "Spend 60% of the budget on the venue",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_share_60",
+    "criterion_label": "Spend 60% of the budget on the venue",
+    "default_key": "venue_share_60",
+    "default_label": "Spend 60% of the budget on the venue",
+    "filtered_out": [
+      {
+        "option": "50%",
+        "reason": "Agent's usual split is 60%",
+      },
+      {
+        "option": "70%",
+        "reason": "Agent's usual split is 60%",
+      },
+    ],
+    "kind": "select",
+    "options_considered": [
+      "50%",
+      "60%",
+      "70%",
+    ],
+    "preview": null,
+    "seq": 1,
+    "source": "default",
+    "status": "done",
+  },
+  {
+    "action": "Agents disagree: Venue agent wants Ridgeview Inn (fits 24, parking); Budget agent says over venue share by $4,000",
+    "agent": "Cosign",
+    "criteria_out": [
+      {
+        "key": "venue_conflict",
+        "label": "Agents disagree on the venue",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_conflict",
+    "criterion_label": "Agents disagree on the venue",
+    "default_key": "venue_conflict",
+    "default_label": "Agents disagree on the venue",
+    "filtered_out": [],
+    "inputs": [
+      1,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "venue",
+      "budget",
+    ],
+    "preview": {
+      "blocked_by": [
+        "Agents disagree — Cosign never picks a side for you",
+      ],
+      "reversibility": "free",
+      "reversibility_note": "Nothing is booked yet.",
+      "what": "Venue agent wants Ridgeview Inn — fits 24, parking. Budget agent says: over venue share by $4,000.",
+    },
+    "seq": 2,
+    "source": "pending",
+    "status": "pending",
+  },
+  {
+    "action": "Shortlisted Lakeside Lodge",
+    "agent": "Venue agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Fits all 12 people",
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 60% venue share ($1,200)",
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Fits all 12 people",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 60% venue share ($1,200)",
+        "source": "default",
+        "verified": false,
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "require_parking",
+    "criterion_label": "Venues must have on-site parking",
+    "default_key": "venue_share_60",
+    "default_label": "Within the 60% venue share ($1,200)",
+    "depends_on": 2,
+    "exempt": [],
+    "filtered_out": [
+      {
+        "option": "The Foundry Loft",
+        "reason": "$2,600 over venue share $1,200",
+      },
+      {
+        "option": "Cedar Hall",
+        "reason": "Fits 10, need 12",
+      },
+      {
+        "option": "Harbor House",
+        "reason": "$2,400 over venue share $1,200",
+      },
+      {
+        "option": "Ridgeview Inn",
+        "reason": "$5,200 over venue share $1,200",
+      },
+    ],
+    "filtered_out_by": [
+      {
+        "criterion": "venue_share_60",
+        "option": "The Foundry Loft",
+      },
+      {
+        "criterion": "headcount",
+        "option": "Cedar Hall",
+      },
+      {
+        "criterion": "venue_share_60",
+        "option": "Harbor House",
+      },
+      {
+        "criterion": "venue_share_60",
+        "option": "Ridgeview Inn",
+      },
+    ],
+    "inputs": [
+      1,
+      2,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Lakeside Lodge",
+      "The Foundry Loft",
+      "Cedar Hall",
+      "Harbor House",
+      "Ridgeview Inn",
+    ],
+    "preview": null,
+    "seq": 3,
+    "source": "default",
+    "status": "blocked",
+  },
+  {
+    "action": "Picked dates Mar 14–15",
+    "agent": "Venue agent",
+    "criteria_out": [
+      {
+        "key": "earliest_weekend",
+        "label": "Book the earliest open weekend",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "earliest_weekend",
+    "criterion_label": "Book the earliest open weekend",
+    "default_key": "earliest_weekend",
+    "default_label": "Book the earliest open weekend",
+    "depends_on": 3,
+    "filtered_out": [
+      {
+        "option": "Mar 21–22",
+        "reason": "Later than earliest",
+      },
+      {
+        "option": "Apr 4–5",
+        "reason": "Later than earliest",
+      },
+    ],
+    "inputs": [
+      3,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Mar 14–15",
+      "Mar 21–22",
+      "Apr 4–5",
+    ],
+    "preview": null,
+    "seq": 4,
+    "source": "default",
+    "status": "blocked",
+  },
+  {
+    "action": "Pay venue deposit to Lakeside Lodge",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 1600,
+      "memo": "50% deposit for Mar 14–15, non-refundable",
+      "payee": "Lakeside Lodge",
+      "refundable": false,
+      "type": "spend",
+    },
+    "filtered_out": [],
+    "inputs": [
+      1,
+      3,
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Lakeside Lodge",
+    ],
+    "preview": {
+      "amount": 1600,
+      "blocked_by": undefined,
+      "reversibility": "never",
+      "reversibility_note": "Non-refundable. Money cannot be recovered.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 1600,
+      "what": "Pay $1,600 to Lakeside Lodge — 50% deposit for Mar 14–15, non-refundable",
+    },
+    "seq": 5,
+    "source": "contract",
+    "status": "blocked",
+  },
+  {
+    "action": "Reserve catering with Green Fork",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 1020,
+      "cancel_by": "Mar 7",
+      "memo": "12 × $85 lunch",
+      "payee": "Green Fork Catering",
+      "refundable": true,
+      "type": "spend",
+    },
+    "filtered_out": [
+      {
+        "option": "Basil & Co ($110/person)",
+        "reason": "Pricier for the same menu",
+      },
+    ],
+    "inputs": [
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Green Fork ($85/person)",
+      "Basil & Co ($110/person)",
+    ],
+    "preview": {
+      "amount": 1020,
+      "blocked_by": undefined,
+      "reversibility": "until_deadline",
+      "reversibility_note": "Fully refundable until Mar 7.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 2620,
+      "what": "Pay $1,020 to Green Fork Catering — 12 × $85 lunch",
+    },
+    "seq": 6,
+    "source": "contract",
+    "status": "blocked",
+  },
+  {
+    "action": "Send calendar invites",
+    "agent": "Invites agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Invite all 12 people in your headcount",
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Invite all 12 people in your headcount",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "headcount",
+    "criterion_label": "Invite all 12 people in your headcount",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 5,
+    "effect": {
+      "channel": "email",
+      "recipients": 12,
+      "subject": "Team offsite at Lakeside Lodge, Mar 14–15",
+      "type": "send",
+    },
+    "filtered_out": [],
+    "inputs": [
+      4,
+      5,
+    ],
+    "kind": "send",
+    "options_considered": [
+      "All 12 people",
+    ],
+    "preview": {
+      "amount": undefined,
+      "blocked_by": undefined,
+      "reversibility": "never",
+      "reversibility_note": "Sent emails cannot be unsent.",
+      "saved_scope": undefined,
+      "scope": {
+        "recipients": "12 people",
+        "recipients_hash": "eb5920d",
+        "template": "Team offsite at Lakeside Lodge, Mar 14–15",
+        "template_hash": "8a5a5e08",
+      },
+      "total_after": undefined,
+      "what": "Email 12 people: “Team offsite at Lakeside Lodge, Mar 14–15”",
+    },
+    "seq": 7,
+    "source": "contract",
+    "status": "blocked",
+  },
+]
+`;
+
+exports[`offsite scenario stays identical through the scenario refactor > picked a venue in the conflict 1`] = `
+[
+  {
+    "action": "Set goal “Plan a two-day team offsite for 12 people”, 12 people, $6,000 cap",
+    "agent": "You",
+    "criteria_out": [
+      {
+        "key": "user_contract",
+        "label": "Your delegation contract",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "user_contract",
+    "criterion_label": "Your delegation contract",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [],
+    "kind": "contract",
+    "options_considered": [],
+    "preview": null,
+    "seq": 0,
+    "source": "user",
+    "status": "done",
+  },
+  {
+    "action": "Allocated 60% of budget ($3,600) to the venue",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "venue_share_60",
+        "label": "Spend 60% of the budget on the venue",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_share_60",
+    "criterion_label": "Spend 60% of the budget on the venue",
+    "default_key": "venue_share_60",
+    "default_label": "Spend 60% of the budget on the venue",
+    "filtered_out": [
+      {
+        "option": "50%",
+        "reason": "Agent's usual split is 60%",
+      },
+      {
+        "option": "70%",
+        "reason": "Agent's usual split is 60%",
+      },
+    ],
+    "kind": "select",
+    "options_considered": [
+      "50%",
+      "60%",
+      "70%",
+    ],
+    "preview": null,
+    "seq": 1,
+    "source": "default",
+    "status": "done",
+  },
+  {
+    "action": "You settled a disagreement between Venue and Budget agents → Cedar Hall",
+    "agent": "Cosign",
+    "criteria_out": [
+      {
+        "key": "venue_conflict",
+        "label": "Agents disagree on the venue",
+        "source": "you",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_conflict",
+    "criterion_label": "Agents disagree on the venue",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [],
+    "inputs": [
+      1,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "venue",
+      "budget",
+    ],
+    "preview": null,
+    "seq": 2,
+    "source": "user",
+    "status": "done",
+  },
+  {
+    "action": "Shortlisted Cedar Hall",
+    "agent": "Venue agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Fits all 12 people",
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 60% venue share ($3,600)",
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Fits all 12 people",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 60% venue share ($3,600)",
+        "source": "default",
+        "verified": true,
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+        "source": "you",
+        "verified": true,
+      },
+    ],
+    "criterion": "require_parking",
+    "criterion_label": "Venues must have on-site parking",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 2,
+    "exempt": [
+      "Cedar Hall",
+    ],
+    "filtered_out": [
+      {
+        "option": "The Foundry Loft",
+        "reason": "No on-site parking",
+      },
+      {
+        "option": "Harbor House",
+        "reason": "No on-site parking",
+      },
+      {
+        "option": "Ridgeview Inn",
+        "reason": "$5,200 over venue share $3,600",
+      },
+    ],
+    "filtered_out_by": [
+      {
+        "criterion": "require_parking",
+        "option": "The Foundry Loft",
+      },
+      {
+        "criterion": "require_parking",
+        "option": "Harbor House",
+      },
+      {
+        "criterion": "venue_share_60",
+        "option": "Ridgeview Inn",
+      },
+    ],
+    "inputs": [
+      1,
+      2,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Lakeside Lodge",
+      "The Foundry Loft",
+      "Cedar Hall",
+      "Harbor House",
+      "Ridgeview Inn",
+    ],
+    "preview": null,
+    "seq": 3,
+    "source": "default",
+    "status": "done",
+  },
+  {
+    "action": "Picked dates Mar 14–15",
+    "agent": "Venue agent",
+    "criteria_out": [
+      {
+        "key": "earliest_weekend",
+        "label": "Book the earliest open weekend",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "earliest_weekend",
+    "criterion_label": "Book the earliest open weekend",
+    "default_key": "earliest_weekend",
+    "default_label": "Book the earliest open weekend",
+    "depends_on": 3,
+    "filtered_out": [
+      {
+        "option": "Mar 21–22",
+        "reason": "Later than earliest",
+      },
+      {
+        "option": "Apr 4–5",
+        "reason": "Later than earliest",
+      },
+    ],
+    "inputs": [
+      3,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Mar 14–15",
+      "Mar 21–22",
+      "Apr 4–5",
+    ],
+    "preview": null,
+    "seq": 4,
+    "source": "default",
+    "status": "done",
+  },
+  {
+    "action": "Pay venue deposit to Cedar Hall",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 950,
+      "memo": "50% deposit for Mar 14–15, non-refundable",
+      "payee": "Cedar Hall",
+      "refundable": false,
+      "type": "spend",
+    },
+    "filtered_out": [],
+    "inputs": [
+      1,
+      3,
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Cedar Hall",
+    ],
+    "preview": {
+      "amount": 950,
+      "blocked_by": [
+        "Cannot be undone — your setting: “Ask before anything that can't be undone”",
+      ],
+      "reversibility": "never",
+      "reversibility_note": "Non-refundable. Money cannot be recovered.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 950,
+      "what": "Pay $950 to Cedar Hall — 50% deposit for Mar 14–15, non-refundable",
+    },
+    "seq": 5,
+    "source": "pending",
+    "status": "pending",
+  },
+  {
+    "action": "Reserve catering with Green Fork",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 1020,
+      "cancel_by": "Mar 7",
+      "memo": "12 × $85 lunch",
+      "payee": "Green Fork Catering",
+      "refundable": true,
+      "type": "spend",
+    },
+    "filtered_out": [
+      {
+        "option": "Basil & Co ($110/person)",
+        "reason": "Pricier for the same menu",
+      },
+    ],
+    "inputs": [
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Green Fork ($85/person)",
+      "Basil & Co ($110/person)",
+    ],
+    "preview": {
+      "amount": 1020,
+      "blocked_by": undefined,
+      "reversibility": "until_deadline",
+      "reversibility_note": "Fully refundable until Mar 7.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 1970,
+      "what": "Pay $1,020 to Green Fork Catering — 12 × $85 lunch",
+    },
+    "seq": 6,
+    "source": "contract",
+    "status": "done",
+  },
+  {
+    "action": "Send calendar invites",
+    "agent": "Invites agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Invite all 12 people in your headcount",
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Invite all 12 people in your headcount",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "headcount",
+    "criterion_label": "Invite all 12 people in your headcount",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 5,
+    "effect": {
+      "channel": "email",
+      "recipients": 12,
+      "subject": "Team offsite at Cedar Hall, Mar 14–15",
+      "type": "send",
+    },
+    "filtered_out": [],
+    "inputs": [
+      4,
+      5,
+    ],
+    "kind": "send",
+    "options_considered": [
+      "All 12 people",
+    ],
+    "preview": {
+      "amount": undefined,
+      "blocked_by": [
+        "Cannot be undone — your setting: “Ask before anything that can't be undone”",
+      ],
+      "reversibility": "never",
+      "reversibility_note": "Sent emails cannot be unsent.",
+      "saved_scope": undefined,
+      "scope": {
+        "recipients": "12 people",
+        "recipients_hash": "eb5920d",
+        "template": "Team offsite at Cedar Hall, Mar 14–15",
+        "template_hash": "986a11b",
+      },
+      "total_after": undefined,
+      "what": "Email 12 people: “Team offsite at Cedar Hall, Mar 14–15”",
+    },
+    "seq": 7,
+    "source": "pending",
+    "status": "blocked",
+  },
+]
+`;
+
+exports[`offsite scenario stays identical through the scenario refactor > seed 1`] = `
+[
+  {
+    "action": "Set goal “Plan a two-day team offsite for 12 people”, 12 people, $6,000 cap",
+    "agent": "You",
+    "criteria_out": [
+      {
+        "key": "user_contract",
+        "label": "Your delegation contract",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "user_contract",
+    "criterion_label": "Your delegation contract",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [],
+    "kind": "contract",
+    "options_considered": [],
+    "preview": null,
+    "seq": 0,
+    "source": "user",
+    "status": "done",
+  },
+  {
+    "action": "Allocated 60% of budget ($3,600) to the venue",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "venue_share_60",
+        "label": "Spend 60% of the budget on the venue",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_share_60",
+    "criterion_label": "Spend 60% of the budget on the venue",
+    "default_key": "venue_share_60",
+    "default_label": "Spend 60% of the budget on the venue",
+    "filtered_out": [
+      {
+        "option": "50%",
+        "reason": "Agent's usual split is 60%",
+      },
+      {
+        "option": "70%",
+        "reason": "Agent's usual split is 60%",
+      },
+    ],
+    "kind": "select",
+    "options_considered": [
+      "50%",
+      "60%",
+      "70%",
+    ],
+    "preview": null,
+    "seq": 1,
+    "source": "default",
+    "status": "done",
+  },
+  {
+    "action": "Agents disagree: Venue agent wants Ridgeview Inn (fits 24, parking); Budget agent says over venue share by $1,600",
+    "agent": "Cosign",
+    "criteria_out": [
+      {
+        "key": "venue_conflict",
+        "label": "Agents disagree on the venue",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_conflict",
+    "criterion_label": "Agents disagree on the venue",
+    "default_key": "venue_conflict",
+    "default_label": "Agents disagree on the venue",
+    "filtered_out": [],
+    "inputs": [
+      1,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "venue",
+      "budget",
+    ],
+    "preview": {
+      "blocked_by": [
+        "Agents disagree — Cosign never picks a side for you",
+      ],
+      "reversibility": "free",
+      "reversibility_note": "Nothing is booked yet.",
+      "what": "Venue agent wants Ridgeview Inn — fits 24, parking. Budget agent says: over venue share by $1,600.",
+    },
+    "seq": 2,
+    "source": "pending",
+    "status": "pending",
+  },
+  {
+    "action": "Shortlisted Lakeside Lodge",
+    "agent": "Venue agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Fits all 12 people",
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 60% venue share ($3,600)",
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Fits all 12 people",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 60% venue share ($3,600)",
+        "source": "default",
+        "verified": true,
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "require_parking",
+    "criterion_label": "Venues must have on-site parking",
+    "default_key": "require_parking",
+    "default_label": "Venues must have on-site parking",
+    "depends_on": 2,
+    "exempt": [],
+    "filtered_out": [
+      {
+        "option": "The Foundry Loft",
+        "reason": "No on-site parking",
+      },
+      {
+        "option": "Cedar Hall",
+        "reason": "Fits 10, need 12",
+      },
+      {
+        "option": "Harbor House",
+        "reason": "No on-site parking",
+      },
+      {
+        "option": "Ridgeview Inn",
+        "reason": "$5,200 over venue share $3,600",
+      },
+    ],
+    "filtered_out_by": [
+      {
+        "criterion": "require_parking",
+        "option": "The Foundry Loft",
+      },
+      {
+        "criterion": "headcount",
+        "option": "Cedar Hall",
+      },
+      {
+        "criterion": "require_parking",
+        "option": "Harbor House",
+      },
+      {
+        "criterion": "venue_share_60",
+        "option": "Ridgeview Inn",
+      },
+    ],
+    "inputs": [
+      1,
+      2,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Lakeside Lodge",
+      "The Foundry Loft",
+      "Cedar Hall",
+      "Harbor House",
+      "Ridgeview Inn",
+    ],
+    "preview": null,
+    "seq": 3,
+    "source": "default",
+    "status": "blocked",
+  },
+  {
+    "action": "Picked dates Mar 14–15",
+    "agent": "Venue agent",
+    "criteria_out": [
+      {
+        "key": "earliest_weekend",
+        "label": "Book the earliest open weekend",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "earliest_weekend",
+    "criterion_label": "Book the earliest open weekend",
+    "default_key": "earliest_weekend",
+    "default_label": "Book the earliest open weekend",
+    "depends_on": 3,
+    "filtered_out": [
+      {
+        "option": "Mar 21–22",
+        "reason": "Later than earliest",
+      },
+      {
+        "option": "Apr 4–5",
+        "reason": "Later than earliest",
+      },
+    ],
+    "inputs": [
+      3,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Mar 14–15",
+      "Mar 21–22",
+      "Apr 4–5",
+    ],
+    "preview": null,
+    "seq": 4,
+    "source": "default",
+    "status": "blocked",
+  },
+  {
+    "action": "Pay venue deposit to Lakeside Lodge",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 1600,
+      "memo": "50% deposit for Mar 14–15, non-refundable",
+      "payee": "Lakeside Lodge",
+      "refundable": false,
+      "type": "spend",
+    },
+    "filtered_out": [],
+    "inputs": [
+      1,
+      3,
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Lakeside Lodge",
+    ],
+    "preview": {
+      "amount": 1600,
+      "blocked_by": [
+        "Cannot be undone — your setting: “Ask before anything that can't be undone”",
+      ],
+      "reversibility": "never",
+      "reversibility_note": "Non-refundable. Money cannot be recovered.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 1600,
+      "what": "Pay $1,600 to Lakeside Lodge — 50% deposit for Mar 14–15, non-refundable",
+    },
+    "seq": 5,
+    "source": "pending",
+    "status": "blocked",
+  },
+  {
+    "action": "Reserve catering with Green Fork",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 1020,
+      "cancel_by": "Mar 7",
+      "memo": "12 × $85 lunch",
+      "payee": "Green Fork Catering",
+      "refundable": true,
+      "type": "spend",
+    },
+    "filtered_out": [
+      {
+        "option": "Basil & Co ($110/person)",
+        "reason": "Pricier for the same menu",
+      },
+    ],
+    "inputs": [
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Green Fork ($85/person)",
+      "Basil & Co ($110/person)",
+    ],
+    "preview": {
+      "amount": 1020,
+      "blocked_by": undefined,
+      "reversibility": "until_deadline",
+      "reversibility_note": "Fully refundable until Mar 7.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 2620,
+      "what": "Pay $1,020 to Green Fork Catering — 12 × $85 lunch",
+    },
+    "seq": 6,
+    "source": "contract",
+    "status": "blocked",
+  },
+  {
+    "action": "Send calendar invites",
+    "agent": "Invites agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Invite all 12 people in your headcount",
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Invite all 12 people in your headcount",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "headcount",
+    "criterion_label": "Invite all 12 people in your headcount",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 5,
+    "effect": {
+      "channel": "email",
+      "recipients": 12,
+      "subject": "Team offsite at Lakeside Lodge, Mar 14–15",
+      "type": "send",
+    },
+    "filtered_out": [],
+    "inputs": [
+      4,
+      5,
+    ],
+    "kind": "send",
+    "options_considered": [
+      "All 12 people",
+    ],
+    "preview": {
+      "amount": undefined,
+      "blocked_by": [
+        "Cannot be undone — your setting: “Ask before anything that can't be undone”",
+      ],
+      "reversibility": "never",
+      "reversibility_note": "Sent emails cannot be unsent.",
+      "saved_scope": undefined,
+      "scope": {
+        "recipients": "12 people",
+        "recipients_hash": "eb5920d",
+        "template": "Team offsite at Lakeside Lodge, Mar 14–15",
+        "template_hash": "8a5a5e08",
+      },
+      "total_after": undefined,
+      "what": "Email 12 people: “Team offsite at Lakeside Lodge, Mar 14–15”",
+    },
+    "seq": 7,
+    "source": "pending",
+    "status": "blocked",
+  },
+]
+`;
+
+exports[`offsite scenario stays identical through the scenario refactor > sided with budget 1`] = `
+[
+  {
+    "action": "Set goal “Plan a two-day team offsite for 12 people”, 12 people, $6,000 cap",
+    "agent": "You",
+    "criteria_out": [
+      {
+        "key": "user_contract",
+        "label": "Your delegation contract",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "user_contract",
+    "criterion_label": "Your delegation contract",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [],
+    "kind": "contract",
+    "options_considered": [],
+    "preview": null,
+    "seq": 0,
+    "source": "user",
+    "status": "done",
+  },
+  {
+    "action": "Allocated 60% of budget ($3,600) to the venue",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "venue_share_60",
+        "label": "Spend 60% of the budget on the venue",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_share_60",
+    "criterion_label": "Spend 60% of the budget on the venue",
+    "default_key": "venue_share_60",
+    "default_label": "Spend 60% of the budget on the venue",
+    "filtered_out": [
+      {
+        "option": "50%",
+        "reason": "Agent's usual split is 60%",
+      },
+      {
+        "option": "70%",
+        "reason": "Agent's usual split is 60%",
+      },
+    ],
+    "kind": "select",
+    "options_considered": [
+      "50%",
+      "60%",
+      "70%",
+    ],
+    "preview": null,
+    "seq": 1,
+    "source": "default",
+    "status": "done",
+  },
+  {
+    "action": "You settled a disagreement between Venue and Budget agents → Lakeside Lodge",
+    "agent": "Cosign",
+    "criteria_out": [
+      {
+        "key": "venue_conflict",
+        "label": "Agents disagree on the venue",
+        "source": "you",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_conflict",
+    "criterion_label": "Agents disagree on the venue",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [],
+    "inputs": [
+      1,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "venue",
+      "budget",
+    ],
+    "preview": null,
+    "seq": 2,
+    "source": "user",
+    "status": "done",
+  },
+  {
+    "action": "Shortlisted Lakeside Lodge",
+    "agent": "Venue agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Fits all 12 people",
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 60% venue share ($3,600)",
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Fits all 12 people",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 60% venue share ($3,600)",
+        "source": "default",
+        "verified": true,
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "require_parking",
+    "criterion_label": "Venues must have on-site parking",
+    "default_key": "require_parking",
+    "default_label": "Venues must have on-site parking",
+    "depends_on": 2,
+    "exempt": [],
+    "filtered_out": [
+      {
+        "option": "The Foundry Loft",
+        "reason": "No on-site parking",
+      },
+      {
+        "option": "Cedar Hall",
+        "reason": "Fits 10, need 12",
+      },
+      {
+        "option": "Harbor House",
+        "reason": "No on-site parking",
+      },
+      {
+        "option": "Ridgeview Inn",
+        "reason": "$5,200 over venue share $3,600",
+      },
+    ],
+    "filtered_out_by": [
+      {
+        "criterion": "require_parking",
+        "option": "The Foundry Loft",
+      },
+      {
+        "criterion": "headcount",
+        "option": "Cedar Hall",
+      },
+      {
+        "criterion": "require_parking",
+        "option": "Harbor House",
+      },
+      {
+        "criterion": "venue_share_60",
+        "option": "Ridgeview Inn",
+      },
+    ],
+    "inputs": [
+      1,
+      2,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Lakeside Lodge",
+      "The Foundry Loft",
+      "Cedar Hall",
+      "Harbor House",
+      "Ridgeview Inn",
+    ],
+    "preview": null,
+    "seq": 3,
+    "source": "default",
+    "status": "done",
+  },
+  {
+    "action": "Picked dates Mar 14–15",
+    "agent": "Venue agent",
+    "criteria_out": [
+      {
+        "key": "earliest_weekend",
+        "label": "Book the earliest open weekend",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "earliest_weekend",
+    "criterion_label": "Book the earliest open weekend",
+    "default_key": "earliest_weekend",
+    "default_label": "Book the earliest open weekend",
+    "depends_on": 3,
+    "filtered_out": [
+      {
+        "option": "Mar 21–22",
+        "reason": "Later than earliest",
+      },
+      {
+        "option": "Apr 4–5",
+        "reason": "Later than earliest",
+      },
+    ],
+    "inputs": [
+      3,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Mar 14–15",
+      "Mar 21–22",
+      "Apr 4–5",
+    ],
+    "preview": null,
+    "seq": 4,
+    "source": "default",
+    "status": "done",
+  },
+  {
+    "action": "Pay venue deposit to Lakeside Lodge",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 1600,
+      "memo": "50% deposit for Mar 14–15, non-refundable",
+      "payee": "Lakeside Lodge",
+      "refundable": false,
+      "type": "spend",
+    },
+    "filtered_out": [],
+    "inputs": [
+      1,
+      3,
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Lakeside Lodge",
+    ],
+    "preview": {
+      "amount": 1600,
+      "blocked_by": [
+        "Cannot be undone — your setting: “Ask before anything that can't be undone”",
+      ],
+      "reversibility": "never",
+      "reversibility_note": "Non-refundable. Money cannot be recovered.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 1600,
+      "what": "Pay $1,600 to Lakeside Lodge — 50% deposit for Mar 14–15, non-refundable",
+    },
+    "seq": 5,
+    "source": "pending",
+    "status": "pending",
+  },
+  {
+    "action": "Reserve catering with Green Fork",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 1020,
+      "cancel_by": "Mar 7",
+      "memo": "12 × $85 lunch",
+      "payee": "Green Fork Catering",
+      "refundable": true,
+      "type": "spend",
+    },
+    "filtered_out": [
+      {
+        "option": "Basil & Co ($110/person)",
+        "reason": "Pricier for the same menu",
+      },
+    ],
+    "inputs": [
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Green Fork ($85/person)",
+      "Basil & Co ($110/person)",
+    ],
+    "preview": {
+      "amount": 1020,
+      "blocked_by": undefined,
+      "reversibility": "until_deadline",
+      "reversibility_note": "Fully refundable until Mar 7.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 2620,
+      "what": "Pay $1,020 to Green Fork Catering — 12 × $85 lunch",
+    },
+    "seq": 6,
+    "source": "contract",
+    "status": "done",
+  },
+  {
+    "action": "Send calendar invites",
+    "agent": "Invites agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Invite all 12 people in your headcount",
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Invite all 12 people in your headcount",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "headcount",
+    "criterion_label": "Invite all 12 people in your headcount",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 5,
+    "effect": {
+      "channel": "email",
+      "recipients": 12,
+      "subject": "Team offsite at Lakeside Lodge, Mar 14–15",
+      "type": "send",
+    },
+    "filtered_out": [],
+    "inputs": [
+      4,
+      5,
+    ],
+    "kind": "send",
+    "options_considered": [
+      "All 12 people",
+    ],
+    "preview": {
+      "amount": undefined,
+      "blocked_by": [
+        "Cannot be undone — your setting: “Ask before anything that can't be undone”",
+      ],
+      "reversibility": "never",
+      "reversibility_note": "Sent emails cannot be unsent.",
+      "saved_scope": undefined,
+      "scope": {
+        "recipients": "12 people",
+        "recipients_hash": "eb5920d",
+        "template": "Team offsite at Lakeside Lodge, Mar 14–15",
+        "template_hash": "8a5a5e08",
+      },
+      "total_after": undefined,
+      "what": "Email 12 people: “Team offsite at Lakeside Lodge, Mar 14–15”",
+    },
+    "seq": 7,
+    "source": "pending",
+    "status": "blocked",
+  },
+]
+`;
+
+exports[`offsite scenario stays identical through the scenario refactor > sided with venue 1`] = `
+[
+  {
+    "action": "Set goal “Plan a two-day team offsite for 12 people”, 12 people, $6,000 cap",
+    "agent": "You",
+    "criteria_out": [
+      {
+        "key": "user_contract",
+        "label": "Your delegation contract",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "user_contract",
+    "criterion_label": "Your delegation contract",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [],
+    "kind": "contract",
+    "options_considered": [],
+    "preview": null,
+    "seq": 0,
+    "source": "user",
+    "status": "done",
+  },
+  {
+    "action": "Allocated 60% of budget ($3,600) to the venue",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "venue_share_60",
+        "label": "Spend 60% of the budget on the venue",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_share_60",
+    "criterion_label": "Spend 60% of the budget on the venue",
+    "default_key": "venue_share_60",
+    "default_label": "Spend 60% of the budget on the venue",
+    "filtered_out": [
+      {
+        "option": "50%",
+        "reason": "Agent's usual split is 60%",
+      },
+      {
+        "option": "70%",
+        "reason": "Agent's usual split is 60%",
+      },
+    ],
+    "kind": "select",
+    "options_considered": [
+      "50%",
+      "60%",
+      "70%",
+    ],
+    "preview": null,
+    "seq": 1,
+    "source": "default",
+    "status": "done",
+  },
+  {
+    "action": "You settled a disagreement between Venue and Budget agents → Ridgeview Inn",
+    "agent": "Cosign",
+    "criteria_out": [
+      {
+        "key": "venue_conflict",
+        "label": "Agents disagree on the venue",
+        "source": "you",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_conflict",
+    "criterion_label": "Agents disagree on the venue",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [],
+    "inputs": [
+      1,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "venue",
+      "budget",
+    ],
+    "preview": null,
+    "seq": 2,
+    "source": "user",
+    "status": "done",
+  },
+  {
+    "action": "Shortlisted Ridgeview Inn",
+    "agent": "Venue agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Fits all 12 people",
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 60% venue share ($3,600)",
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Fits all 12 people",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 60% venue share ($3,600)",
+        "source": "default",
+        "verified": true,
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+        "source": "you",
+        "verified": true,
+      },
+    ],
+    "criterion": "require_parking",
+    "criterion_label": "Venues must have on-site parking",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 2,
+    "exempt": [
+      "Ridgeview Inn",
+    ],
+    "filtered_out": [
+      {
+        "option": "The Foundry Loft",
+        "reason": "No on-site parking",
+      },
+      {
+        "option": "Cedar Hall",
+        "reason": "Fits 10, need 12",
+      },
+      {
+        "option": "Harbor House",
+        "reason": "No on-site parking",
+      },
+    ],
+    "filtered_out_by": [
+      {
+        "criterion": "require_parking",
+        "option": "The Foundry Loft",
+      },
+      {
+        "criterion": "headcount",
+        "option": "Cedar Hall",
+      },
+      {
+        "criterion": "require_parking",
+        "option": "Harbor House",
+      },
+    ],
+    "inputs": [
+      1,
+      2,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Lakeside Lodge",
+      "The Foundry Loft",
+      "Cedar Hall",
+      "Harbor House",
+      "Ridgeview Inn",
+    ],
+    "preview": null,
+    "seq": 3,
+    "source": "default",
+    "status": "done",
+  },
+  {
+    "action": "Picked dates Mar 14–15",
+    "agent": "Venue agent",
+    "criteria_out": [
+      {
+        "key": "earliest_weekend",
+        "label": "Book the earliest open weekend",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "earliest_weekend",
+    "criterion_label": "Book the earliest open weekend",
+    "default_key": "earliest_weekend",
+    "default_label": "Book the earliest open weekend",
+    "depends_on": 3,
+    "filtered_out": [
+      {
+        "option": "Mar 21–22",
+        "reason": "Later than earliest",
+      },
+      {
+        "option": "Apr 4–5",
+        "reason": "Later than earliest",
+      },
+    ],
+    "inputs": [
+      3,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Mar 14–15",
+      "Mar 21–22",
+      "Apr 4–5",
+    ],
+    "preview": null,
+    "seq": 4,
+    "source": "default",
+    "status": "done",
+  },
+  {
+    "action": "Pay venue deposit to Ridgeview Inn",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 2600,
+      "memo": "50% deposit for Mar 14–15, non-refundable",
+      "payee": "Ridgeview Inn",
+      "refundable": false,
+      "type": "spend",
+    },
+    "filtered_out": [],
+    "inputs": [
+      1,
+      3,
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Ridgeview Inn",
+    ],
+    "preview": {
+      "amount": 2600,
+      "blocked_by": [
+        "Cannot be undone — your setting: “Ask before anything that can't be undone”",
+      ],
+      "reversibility": "never",
+      "reversibility_note": "Non-refundable. Money cannot be recovered.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 2600,
+      "what": "Pay $2,600 to Ridgeview Inn — 50% deposit for Mar 14–15, non-refundable",
+    },
+    "seq": 5,
+    "source": "pending",
+    "status": "pending",
+  },
+  {
+    "action": "Reserve catering with Green Fork",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 1020,
+      "cancel_by": "Mar 7",
+      "memo": "12 × $85 lunch",
+      "payee": "Green Fork Catering",
+      "refundable": true,
+      "type": "spend",
+    },
+    "filtered_out": [
+      {
+        "option": "Basil & Co ($110/person)",
+        "reason": "Pricier for the same menu",
+      },
+    ],
+    "inputs": [
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Green Fork ($85/person)",
+      "Basil & Co ($110/person)",
+    ],
+    "preview": {
+      "amount": 1020,
+      "blocked_by": undefined,
+      "reversibility": "until_deadline",
+      "reversibility_note": "Fully refundable until Mar 7.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 3620,
+      "what": "Pay $1,020 to Green Fork Catering — 12 × $85 lunch",
+    },
+    "seq": 6,
+    "source": "contract",
+    "status": "done",
+  },
+  {
+    "action": "Send calendar invites",
+    "agent": "Invites agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Invite all 12 people in your headcount",
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Invite all 12 people in your headcount",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "headcount",
+    "criterion_label": "Invite all 12 people in your headcount",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 5,
+    "effect": {
+      "channel": "email",
+      "recipients": 12,
+      "subject": "Team offsite at Ridgeview Inn, Mar 14–15",
+      "type": "send",
+    },
+    "filtered_out": [],
+    "inputs": [
+      4,
+      5,
+    ],
+    "kind": "send",
+    "options_considered": [
+      "All 12 people",
+    ],
+    "preview": {
+      "amount": undefined,
+      "blocked_by": [
+        "Cannot be undone — your setting: “Ask before anything that can't be undone”",
+      ],
+      "reversibility": "never",
+      "reversibility_note": "Sent emails cannot be unsent.",
+      "saved_scope": undefined,
+      "scope": {
+        "recipients": "12 people",
+        "recipients_hash": "eb5920d",
+        "template": "Team offsite at Ridgeview Inn, Mar 14–15",
+        "template_hash": "a946e546",
+      },
+      "total_after": undefined,
+      "what": "Email 12 people: “Team offsite at Ridgeview Inn, Mar 14–15”",
+    },
+    "seq": 7,
+    "source": "pending",
+    "status": "blocked",
+  },
+]
+`;
+
+exports[`offsite scenario stays identical through the scenario refactor > split raised to 70% 1`] = `
+[
+  {
+    "action": "Set goal “Plan a two-day team offsite for 12 people”, 12 people, $6,000 cap",
+    "agent": "You",
+    "criteria_out": [
+      {
+        "key": "user_contract",
+        "label": "Your delegation contract",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "user_contract",
+    "criterion_label": "Your delegation contract",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [],
+    "kind": "contract",
+    "options_considered": [],
+    "preview": null,
+    "seq": 0,
+    "source": "user",
+    "status": "done",
+  },
+  {
+    "action": "Allocated 70% of budget ($4,200) to the venue",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "venue_share_60",
+        "label": "Spend 60% of the budget on the venue",
+        "source": "you",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_share_60",
+    "criterion_label": "Spend 60% of the budget on the venue",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [
+      {
+        "option": "50%",
+        "reason": "You chose otherwise",
+      },
+      {
+        "option": "60%",
+        "reason": "You chose otherwise",
+      },
+    ],
+    "kind": "select",
+    "options_considered": [
+      "50%",
+      "60%",
+      "70%",
+    ],
+    "preview": null,
+    "seq": 1,
+    "source": "user",
+    "status": "done",
+  },
+  {
+    "action": "You settled a disagreement between Venue and Budget agents → Ridgeview Inn",
+    "agent": "Cosign",
+    "criteria_out": [
+      {
+        "key": "venue_conflict",
+        "label": "Agents disagree on the venue",
+        "source": "you",
+        "verified": true,
+      },
+    ],
+    "criterion": "venue_conflict",
+    "criterion_label": "Agents disagree on the venue",
+    "default_key": null,
+    "default_label": null,
+    "filtered_out": [],
+    "inputs": [
+      1,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "venue",
+      "budget",
+    ],
+    "preview": null,
+    "seq": 2,
+    "source": "user",
+    "status": "done",
+  },
+  {
+    "action": "Shortlisted Ridgeview Inn",
+    "agent": "Venue agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Fits all 12 people",
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 70% venue share ($4,200)",
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Fits all 12 people",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "venue_share_60",
+        "label": "Within the 70% venue share ($4,200)",
+        "source": "you",
+        "verified": true,
+      },
+      {
+        "key": "require_parking",
+        "label": "Venues must have on-site parking",
+        "source": "you",
+        "verified": true,
+      },
+    ],
+    "criterion": "require_parking",
+    "criterion_label": "Venues must have on-site parking",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 2,
+    "exempt": [
+      "Ridgeview Inn",
+    ],
+    "filtered_out": [
+      {
+        "option": "The Foundry Loft",
+        "reason": "No on-site parking",
+      },
+      {
+        "option": "Cedar Hall",
+        "reason": "Fits 10, need 12",
+      },
+      {
+        "option": "Harbor House",
+        "reason": "No on-site parking",
+      },
+    ],
+    "filtered_out_by": [
+      {
+        "criterion": "require_parking",
+        "option": "The Foundry Loft",
+      },
+      {
+        "criterion": "headcount",
+        "option": "Cedar Hall",
+      },
+      {
+        "criterion": "require_parking",
+        "option": "Harbor House",
+      },
+    ],
+    "inputs": [
+      1,
+      2,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Lakeside Lodge",
+      "The Foundry Loft",
+      "Cedar Hall",
+      "Harbor House",
+      "Ridgeview Inn",
+    ],
+    "preview": null,
+    "seq": 3,
+    "source": "contract",
+    "status": "done",
+  },
+  {
+    "action": "Picked dates Mar 14–15",
+    "agent": "Venue agent",
+    "criteria_out": [
+      {
+        "key": "earliest_weekend",
+        "label": "Book the earliest open weekend",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "earliest_weekend",
+    "criterion_label": "Book the earliest open weekend",
+    "default_key": "earliest_weekend",
+    "default_label": "Book the earliest open weekend",
+    "depends_on": 3,
+    "filtered_out": [
+      {
+        "option": "Mar 21–22",
+        "reason": "Later than earliest",
+      },
+      {
+        "option": "Apr 4–5",
+        "reason": "Later than earliest",
+      },
+    ],
+    "inputs": [
+      3,
+    ],
+    "kind": "select",
+    "options_considered": [
+      "Mar 14–15",
+      "Mar 21–22",
+      "Apr 4–5",
+    ],
+    "preview": null,
+    "seq": 4,
+    "source": "default",
+    "status": "done",
+  },
+  {
+    "action": "Pay venue deposit to Ridgeview Inn",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 2600,
+      "memo": "50% deposit for Mar 14–15, non-refundable",
+      "payee": "Ridgeview Inn",
+      "refundable": false,
+      "type": "spend",
+    },
+    "filtered_out": [],
+    "inputs": [
+      1,
+      3,
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Ridgeview Inn",
+    ],
+    "preview": {
+      "amount": 2600,
+      "blocked_by": [
+        "Cannot be undone — your setting: “Ask before anything that can't be undone”",
+      ],
+      "reversibility": "never",
+      "reversibility_note": "Non-refundable. Money cannot be recovered.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 2600,
+      "what": "Pay $2,600 to Ridgeview Inn — 50% deposit for Mar 14–15, non-refundable",
+    },
+    "seq": 5,
+    "source": "pending",
+    "status": "pending",
+  },
+  {
+    "action": "Reserve catering with Green Fork",
+    "agent": "Budget agent",
+    "criteria_out": [
+      {
+        "key": "budget_cap",
+        "label": "Within your budget cap",
+        "source": "contract",
+        "verified": true,
+      },
+    ],
+    "criterion": "budget_cap",
+    "criterion_label": "Within your budget cap",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 4,
+    "effect": {
+      "amount": 1020,
+      "cancel_by": "Mar 7",
+      "memo": "12 × $85 lunch",
+      "payee": "Green Fork Catering",
+      "refundable": true,
+      "type": "spend",
+    },
+    "filtered_out": [
+      {
+        "option": "Basil & Co ($110/person)",
+        "reason": "Pricier for the same menu",
+      },
+    ],
+    "inputs": [
+      4,
+    ],
+    "kind": "spend",
+    "options_considered": [
+      "Green Fork ($85/person)",
+      "Basil & Co ($110/person)",
+    ],
+    "preview": {
+      "amount": 1020,
+      "blocked_by": undefined,
+      "reversibility": "until_deadline",
+      "reversibility_note": "Fully refundable until Mar 7.",
+      "saved_scope": undefined,
+      "scope": undefined,
+      "total_after": 3620,
+      "what": "Pay $1,020 to Green Fork Catering — 12 × $85 lunch",
+    },
+    "seq": 6,
+    "source": "contract",
+    "status": "done",
+  },
+  {
+    "action": "Send calendar invites",
+    "agent": "Invites agent",
+    "criteria": [
+      {
+        "key": "headcount",
+        "label": "Invite all 12 people in your headcount",
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+      },
+    ],
+    "criteria_out": [
+      {
+        "key": "headcount",
+        "label": "Invite all 12 people in your headcount",
+        "source": "contract",
+        "verified": true,
+      },
+      {
+        "key": "recipients",
+        "label": "Agent's guess: the team mailing list",
+        "source": "default",
+        "verified": true,
+      },
+    ],
+    "criterion": "headcount",
+    "criterion_label": "Invite all 12 people in your headcount",
+    "default_key": null,
+    "default_label": null,
+    "depends_on": 5,
+    "effect": {
+      "channel": "email",
+      "recipients": 12,
+      "subject": "Team offsite at Ridgeview Inn, Mar 14–15",
+      "type": "send",
+    },
+    "filtered_out": [],
+    "inputs": [
+      4,
+      5,
+    ],
+    "kind": "send",
+    "options_considered": [
+      "All 12 people",
+    ],
+    "preview": {
+      "amount": undefined,
+      "blocked_by": [
+        "Cannot be undone — your setting: “Ask before anything that can't be undone”",
+      ],
+      "reversibility": "never",
+      "reversibility_note": "Sent emails cannot be unsent.",
+      "saved_scope": undefined,
+      "scope": {
+        "recipients": "12 people",
+        "recipients_hash": "eb5920d",
+        "template": "Team offsite at Ridgeview Inn, Mar 14–15",
+        "template_hash": "a946e546",
+      },
+      "total_after": undefined,
+      "what": "Email 12 people: “Team offsite at Ridgeview Inn, Mar 14–15”",
+    },
+    "seq": 7,
+    "source": "pending",
+    "status": "blocked",
+  },
+]
+`;

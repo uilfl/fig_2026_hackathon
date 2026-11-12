@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Cosign: a rubber stamp with a signature stroke ending in a check. Brand accent oklch(0.6 0.19 35) ≈ #da4620, cream ≈ #faf6ee. -->
+  <style>
+    .bg { fill: #faf6ee; }
+    .ink { stroke: #da4620; }
+    @media (prefers-color-scheme: dark) { .bg { fill: #1b150f; } .ink { stroke: #f0673f; } }
+  </style>
+  <rect class="bg" x="1" y="1" width="30" height="30" rx="5" />
+  <rect class="ink" x="3" y="3" width="26" height="26" rx="4" fill="none" stroke-width="2.5" />
+  <path class="ink" d="M7.5 18.5c1.5-3 3-3.8 3.6-2.8s-1.2 3.8.4 3.8c1.2 0 1.8-2 2.6-2" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
+  <path class="ink" d="M16.5 17.5l3 3 6-8.5" fill="none" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
