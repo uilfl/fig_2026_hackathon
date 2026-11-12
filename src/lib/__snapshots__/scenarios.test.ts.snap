@@ -31,13 +31,13 @@ exports[`offsite scenario stays identical through the scenario refactor > ask be
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Keep it balanced (the agent's usual)",
+        "label": "Keep it balanced",
         "source": "default",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Keep it balanced (the agent's usual)",
+    "criterion_label": "Keep it balanced",
     "default_key": null,
     "default_label": null,
     "filtered_out": [
@@ -459,15 +459,15 @@ exports[`offsite scenario stays identical through the scenario refactor > dates 
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Keep it balanced (the agent's usual)",
+        "label": "Keep it balanced",
         "source": "default",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Keep it balanced (the agent's usual)",
+    "criterion_label": "Keep it balanced",
     "default_key": "venue_share_60",
-    "default_label": "Keep it balanced (the agent's usual)",
+    "default_label": "Keep it balanced",
     "filtered_out": [
       {
         "option": "Save for catering",
@@ -892,15 +892,15 @@ exports[`offsite scenario stays identical through the scenario refactor > kept p
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Keep it balanced (the agent's usual)",
+        "label": "Keep it balanced",
         "source": "default",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Keep it balanced (the agent's usual)",
+    "criterion_label": "Keep it balanced",
     "default_key": "venue_share_60",
-    "default_label": "Keep it balanced (the agent's usual)",
+    "default_label": "Keep it balanced",
     "filtered_out": [
       {
         "option": "Save for catering",
@@ -1290,15 +1290,15 @@ exports[`offsite scenario stays identical through the scenario refactor > never 
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Keep it balanced (the agent's usual)",
+        "label": "Keep it balanced",
         "source": "default",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Keep it balanced (the agent's usual)",
+    "criterion_label": "Keep it balanced",
     "default_key": "venue_share_60",
-    "default_label": "Keep it balanced (the agent's usual)",
+    "default_label": "Keep it balanced",
     "filtered_out": [
       {
         "option": "Save for catering",
@@ -1691,15 +1691,15 @@ exports[`offsite scenario stays identical through the scenario refactor > picked
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Keep it balanced (the agent's usual)",
+        "label": "Keep it balanced",
         "source": "default",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Keep it balanced (the agent's usual)",
+    "criterion_label": "Keep it balanced",
     "default_key": "venue_share_60",
-    "default_label": "Keep it balanced (the agent's usual)",
+    "default_label": "Keep it balanced",
     "filtered_out": [
       {
         "option": "Save for catering",
@@ -2083,15 +2083,15 @@ exports[`offsite scenario stays identical through the scenario refactor > seed 1
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Keep it balanced (the agent's usual)",
+        "label": "Keep it balanced",
         "source": "default",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Keep it balanced (the agent's usual)",
+    "criterion_label": "Keep it balanced",
     "default_key": "venue_share_60",
-    "default_label": "Keep it balanced (the agent's usual)",
+    "default_label": "Keep it balanced",
     "filtered_out": [
       {
         "option": "Save for catering",
@@ -2488,15 +2488,15 @@ exports[`offsite scenario stays identical through the scenario refactor > sided 
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Keep it balanced (the agent's usual)",
+        "label": "Keep it balanced",
         "source": "default",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Keep it balanced (the agent's usual)",
+    "criterion_label": "Keep it balanced",
     "default_key": "venue_share_60",
-    "default_label": "Keep it balanced (the agent's usual)",
+    "default_label": "Keep it balanced",
     "filtered_out": [
       {
         "option": "Save for catering",
@@ -2886,15 +2886,15 @@ exports[`offsite scenario stays identical through the scenario refactor > sided 
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Keep it balanced (the agent's usual)",
+        "label": "Keep it balanced",
         "source": "default",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Keep it balanced (the agent's usual)",
+    "criterion_label": "Keep it balanced",
     "default_key": "venue_share_60",
-    "default_label": "Keep it balanced (the agent's usual)",
+    "default_label": "Keep it balanced",
     "filtered_out": [
       {
         "option": "Save for catering",
@@ -3278,13 +3278,13 @@ exports[`offsite scenario stays identical through the scenario refactor > split 
     "criteria_out": [
       {
         "key": "venue_share_60",
-        "label": "Keep it balanced (the agent's usual)",
+        "label": "Keep it balanced",
         "source": "you",
         "verified": true,
       },
     ],
     "criterion": "venue_share_60",
-    "criterion_label": "Keep it balanced (the agent's usual)",
+    "criterion_label": "Keep it balanced",
     "default_key": null,
     "default_label": null,
     "filtered_out": [

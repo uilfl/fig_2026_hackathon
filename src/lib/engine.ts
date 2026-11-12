@@ -562,7 +562,7 @@ export function runScenario(contract: Contract): Attributed[] {
       kind: "select",
       action: `Chose “${tierOf(S, share.pick).label}”: up to ${usd(venueBudget)} for the ${S.place}`,
       criterion: SHARE_KEY,
-      criterion_label: `${tierOf(S, S.sharePick).label} (the agent's usual)`,
+      criterion_label: tierOf(S, S.sharePick).label,
       options_considered: S.shares,
       filtered_out: S.shares
         .filter((x) => x !== share.pick)
